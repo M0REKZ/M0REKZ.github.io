@@ -1,6 +1,7 @@
 body{
+    background-color: rgb(49, 59, 90);
     font-family: Arial, Helvetica, sans-serif;
-    background-image: url('./web.png');
+    background-image: url('./web.svg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center bottom;
