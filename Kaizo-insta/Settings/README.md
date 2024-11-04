@@ -23,7 +23,7 @@ These are the settings and commands that kaizo-insta adds to ddnet-insta
 
 ## kaizo-insta commands
 
-`if_gametypes` "s[gametypes] ?s[true result command] ?s[alternate result command]" Run command if running certain gametypes (like if_gametypes ictf,ctf,gctf "sv_scorelimit 1000" "sv_scorelimit 10")
-`random_cmd` "s[command1] s[command2] ?s[...]" Run random command from the list given
-`question` Make a question (only works on vote)
-`/afk` Chat command to set afk state
++ `if_gametypes` "s[gametypes] ?s[true result command] ?s[alternate result command]" Run command if running certain gametypes (like if_gametypes ictf,ctf,gctf "sv_scorelimit 1000" "sv_scorelimit 10")
++ `random_cmd` "s[command1] s[command2] ?s[...]" Run random command from the list given
++ `question` Make a question (only works on vote)
++ `/afk` Chat command to set afk state
