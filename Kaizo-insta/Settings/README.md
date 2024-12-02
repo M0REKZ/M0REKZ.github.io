@@ -15,15 +15,19 @@ These are the settings and commands that kaizo-insta adds to ddnet-insta
 + `sv_spawn_pickups` enable or disable heart and armor spawning (does not work on instagib)
 + `sv_bomb_time` Time in seconds for bomb to explode
 + `sv_bomb_amount` 1 bomb for each specified amount of players (spawns at least 1 if there is less players)
++ `sv_bomb_damage` Enable damage in BOMB
++ `sv_bomb_weapon` BOMB weapon
 + `sv_freeze_automelt_time` Time until the player respawns automatically when he's frozen
 + `sv_freeze_melt_range` Maximum range to melt a player
 + `sv_freeze_melt_time` Time (in ms) the player must stand next to a player to melt him
 + `sv_freeze_melt_respawn` If a player respawns after he was being melted
 + `sv_ball_respawn` Seconds for ball to go back to ball spawn
++ `sv_kzbots` Add KZ Bots
++ `sv_kzbots_ai` KZ Bots AI (0 = +KZ AI, 1 = Pointer AI)
 
 ## kaizo-insta commands
 
-+ `if_gametypes` "s[gametypes] ?s[true result command] ?s[alternate result command]" Run command if running certain gametypes (like if_gametypes ictf,ctf,gctf "sv_scorelimit 1000" "sv_scorelimit 10")
-+ `random_cmd` "s[command1] s[command2] ?s[...]" Run random command from the list given
-+ `question` Make a question (only works on vote)
-+ `/afk` Chat command to set afk state
+`if_gametypes` "s[gametypes] ?s[true result command] ?s[alternate result command]" Run command if running certain gametypes (like if_gametypes ictf,ctf,gctf "sv_scorelimit 1000" "sv_scorelimit 10")
+`random_cmd` "s[command1] s[command2] ?s[...]" Run random command from the list given
+`question` Make a question (only works on vote)
+`/afk` Chat command to set afk state
