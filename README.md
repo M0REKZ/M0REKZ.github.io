@@ -6,6 +6,8 @@
 
 * [My Discord Server](https://discord.gg/K4YNyXxeE8)
 
+* [Kaizo-Network Tiles Documentation](https://m0rekz.github.io/Kaizo-Network/Doc/)
+
 
 ### My DDNet Servers:
 
