@@ -1,7 +1,6 @@
----
-title: Kaizo Network Documentation
----
+# Kaizo Network Documentation
 
+- [Kaizo Network Documentation](#kaizo-network-documentation)
 - [Map Settings](#map-settings)
 - [Tiles](#tiles)
   - [Both +KZGame and +KZFront:](#both-kzgame-and-kzfront)
