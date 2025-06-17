@@ -1,4 +1,6 @@
-# Kaizo-Insta settings
+---
+title: Kaizo-Insta settings
+---
 
 These are the settings and commands that kaizo-insta adds to ddnet-insta
 
