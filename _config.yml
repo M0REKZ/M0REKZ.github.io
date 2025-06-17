@@ -3,3 +3,9 @@ plugins:
   - jekyll-remote-theme
 minima:
   skin: dark
+  hide_site_feed_link: true
+  social_links:
+    - title: +KZ Discord Server
+      icon: discord
+      url: "https://discord.gg/nt8aStQxcR"
+
