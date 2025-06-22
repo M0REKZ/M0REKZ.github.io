@@ -254,6 +254,7 @@ Teleport that can be manipulated with switches
 Tune zone but you can handle it with switches
 
 * Number: Switch number
+* Value1: Tune Zone
 
 ### ID 19: Tune Lock
 
