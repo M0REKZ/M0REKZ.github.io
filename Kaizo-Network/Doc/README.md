@@ -5,7 +5,7 @@
 - [Tiles](#tiles)
   - [Both +KZGame and +KZFront:](#both-kzgame-and-kzfront)
     - [ID 1: Switchable Solid Tile](#id-1-switchable-solid-tile)
-    - [ID 2: Solid Stopper](#id-2-solid-stopper)
+    - [ID 2: Solid Stopper (Version 1)](#id-2-solid-stopper-version-1)
     - [ID 3: Portal Gun](#id-3-portal-gun)
     - [ID 4: Allow Portal](#id-4-allow-portal)
     - [ID 5: Disallow Portal](#id-5-disallow-portal)
@@ -21,14 +21,20 @@
     - [ID 17: Play map sound (in tile position, only for player)](#id-17-play-map-sound-in-tile-position-only-for-player)
   - [+KZGame Only:](#kzgame-only)
     - [ID 15: No damage](#id-15-no-damage)
-    - [ID 16: Button](#id-16-button)
+    - [ID 16: Hittable Switch/Button](#id-16-hittable-switchbutton)
     - [ID 18: Set Camera Position (Spec Position)](#id-18-set-camera-position-spec-position)
     - [ID 19: Switchable Solid Tile (Tee Only)](#id-19-switchable-solid-tile-tee-only)
+    - [ID 20: Solid Stopper (Version 2)](#id-20-solid-stopper-version-2)
   - [+KZFront Only:](#kzfront-only)
     - [ID 15: +Pos](#id-15-pos)
     - [ID 16: +KZ Teleport (Switchable Teleport)](#id-16-kz-teleport-switchable-teleport)
     - [ID 18: Switchable Tune Zone](#id-18-switchable-tune-zone)
     - [ID 19: Tune Lock](#id-19-tune-lock)
+    - [ID 20: Position Shifter](#id-20-position-shifter)
+  - [About Binary Options](#about-binary-options)
+    - [The reason explained](#the-reason-explained)
+    - [How to use](#how-to-use)
+
 
 
 # Map Settings
@@ -60,11 +66,13 @@ Alternative to [ID 19: Switchable Solid Tile (Tee Only)](#id-19-switchable-solid
 * Number: Switch Number
 * Value1: 1 = Hookable, 3 = Unhookable, Any other value is ignored
 
-### ID 2: Solid Stopper
+### ID 2: Solid Stopper (Version 1)
 
-![tile](img/image3x1.png)
+![tile](img/solidstopperv1.png)
 
 One way tile, only Tees get affected, players can not skip it.
+
+**Tile is OUTDATED, use [ID 20: Solid Stopper (Version 2)](#id-20-solid-stopper-version-2) instead, which has better collision handling and switch support**
 
 Tile has NOT switch support
 
@@ -190,21 +198,33 @@ When touched, will play a sound in the tile position only for that player
 
 Player cant get damage after touching this tile
 
+NOTE: There is still not a tile that can revert this effect
+
 * Number: Switch Number
 
-### ID 16: Button
+### ID 16: Hittable Switch/Button
 
-![alt text](img/image1x2.png)
+![alt text](img/hittableswitch.png)
 
 * Number: Switch number to handle
-* Value1: Switch Type (0 = Deactivate, 1 = Timed deactivate, 2 = Timed activate, 3 = Activate)
+* Value1: Switch Type (0 = Deactivate, 1 = Timed deactivate, 2 = Timed activate, 3 = Activate, 4 = Toggle)
 * Value2: Delay
+* Value3: Binary options [(How to use)](#about-binary-options)
+
+Possible Options for Value3:
+
+* 1 = Can ***NOT*** be hit with Hammer
+* 2 = Can be hit with Gun
+* 4 = Can be hit with Grenade
+* 8 = Can be hit with Shotgun
+* 16 = Can be hit with Laser
+* 32 = Can be hit with Ninja
 
 ### ID 18: Set Camera Position (Spec Position)
 
 ![alt text](img/image3x2.png)
 
-Force player camera to see a specific tile position (NOTE: player will lose client-side prediction, only useful for things like cutscenes)
+Force player camera to see a specific TILE position (NOTE: player will lose client-side prediction and produce laggy gameplay, so it is only useful for things like cutscenes)
 
 * Number: Switch number
 * Value1: X position
@@ -222,20 +242,32 @@ You dont need to set Value1 for this one, unlike [ID 1: Switchable Solid Tile](#
 
 * Number: Switch Number
 
+### ID 20: Solid Stopper (Version 2)
+
+![alt text](img/solidstopperv2.png)
+
+One way tile, only Tees get affected, players can not skip it.
+
+Collision with this tile can be manipulated with a switch.
+
+* Number: Switch Number
+
 ## +KZFront Only:
 
 ### ID 15: +Pos
 
 ![alt text](img/frontpluspos.png)
 
-Move player position no matter what, also can limit player velocity on Value3
+Advanced tile that moves player position no matter what, can also limit player velocity with Value3
+
+Alternative and more precise tile: [ID 20: Position Shifter](#id-20-position-shifter)
 
 This is NOT a Speedup tile
 
 * Number: Switch number
 * Value1: Angle
 * Value2: How much Player is pushed each Tick
-* Value3: Max Player velocity in that direction (negative values cancels it)
+* Value3: Max Player velocity in that direction (negative values will cancel the limitation)
 
 ### ID 16: +KZ Teleport (Switchable Teleport)
 
@@ -268,3 +300,62 @@ To remove lock, lock a player to tune zone **-1**
 
 * Number: Switch Number
 * Value1: Tune Zone
+
+### ID 20: Position Shifter
+
+![tile](img/posshifter.png)
+
+Advanced tile that moves the player position in a more precise way than [ID 15: +Pos](#id-15-pos), supports moving projectiles and hook (if tee is hooked to a solid tile)
+
+*Tile can NOT be skiped!*
+
+* Number: Switch Number
+* Value1: How much to add to Tee X position
+* Value2: How much to add to Tee Y position
+* Value3: Binary options [(How to use)](#about-binary-options)
+
+Possible Options for Value3:
+
+* 1 = Shift Hook position (if tee is hooked to a solid tile)
+* 2 = Shift Projectiles position
+* 4 = Invert X Velocity of Tee when shifted
+* 8 = Invert Y Velocity of Tee when shifted
+
+## About Binary Options
+
+Some tiles like [ID 16: Hittable Switch/Button](#id-16-hittable-switchbutton) or [ID 20: Position Shifter](#id-20-position-shifter) has Values used as binary code.
+
+I made them this way to allow multiple options at the same time, which would be even more complicated with normal numbers, making very long lists of possible values.
+
+### The reason explained
+
+Instead of
+
+* Type 1 For Grenade
+* Type 2 For Laser
+* Type 3 For Shotgun
+* Type 4 For Grenade and Laser
+* Type 5 For Grenade and Shotgun
+* bla bla bla
+
+We have
+
+* 001 For Grenade
+* 010 For Laser
+* 100 For Shotgun
+* Combine them as you want :D
+
+### How to use
+
+Imagine that you want to use [ID 16: Hittable Switch/Button](#id-16-hittable-switchbutton) but you want it to work for Grenade and Laser:
+
+Checking the tile documentation we can see that:
+
+* Option to allow **Grenade** is ***4***
+* Option to allow **Laser** is ***16***
+
+To apply both options, you must combine both values:
+
+* 4 + 16 = ***20***
+
+So to allow both Grenade and Laser in the tile you must put value ***20*** in *Value3* of the tile
