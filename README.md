@@ -1,6 +1,6 @@
 ### You may be looking for:
 
-* [Kaizo-Insta](https://m0rekz.github.io/Kaizo-insta/)
+* [![Kaizo-Insta](/Kaizo-insta/logo.png)](https://m0rekz.github.io/Kaizo-insta/)
 
 * [Brain Evil webcomic](https://brain-evil.webcomic.ws/)
 
