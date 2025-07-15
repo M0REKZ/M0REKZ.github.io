@@ -1,4 +1,4 @@
-# Kaizo-Network
+![logo](./img/g135.png)
 
 ## What is it?
 
