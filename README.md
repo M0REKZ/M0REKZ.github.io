@@ -1,12 +1,12 @@
 ### You may be looking for:
 
-* [![Kaizo-Insta](/Kaizo-insta/logo.png)](https://m0rekz.github.io/Kaizo-insta/)
+* [![Kaizo-Insta](Kaizo-insta/logo.png)](https://m0rekz.github.io/Kaizo-insta/)
 
-* [Brain Evil webcomic](https://brain-evil.webcomic.ws/)
+* [![Brain Evil webcomic](img/be-logo.png)](https://brain-evil.webcomic.ws/)
 
 * [My Discord Server](https://discord.gg/K4YNyXxeE8)
 
-* [Kaizo Network Documentation](https://m0rekz.github.io/Kaizo-Network/Doc/)
+* [![Kaizo Network Documentation](img/g135.png)](Kaizo-Network/Doc/README.md)
 
 
 ### My DDNet Servers:
