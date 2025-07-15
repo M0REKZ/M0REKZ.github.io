@@ -29,3 +29,4 @@
 ## Other:
 
 * [Blogspot backup](blogspot/)
+* [Buy me a coffee](https://ko-fi.com/pluskaizo)
