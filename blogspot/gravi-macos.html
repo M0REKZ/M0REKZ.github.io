@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <title>+KZ Website: Gravi port for macOS (Porting a Unity 4 Game from Windows to macOS)</title>
+</head>
+
+<body>
+    <p>&nbsp;<i>Another copypaste, this case is from an <a href="https://www.reddit.com/r/macgaming/comments/10ogws9/"
+                rel="nofollow" target="_blank">old post</a> where i got an old version of a game named
+            <b><u>Gravi</u></b> running on mac through Rosetta 2, i could not get to run the latest one, however with
+            some research and effort someone could do it...</i></p>
+    <p><i>Anyways, here is the copypaste:<br /></i><br /><br />Consider this thread as part of <a
+            href="https://www.reddit.com/r/macgaming/comments/10npep4/" rel="nofollow" target="_blank">this other</a>
+    </p>
+    <p><br /></p>
+    <p>Other unity windows/linux games may work too</p>
+    <p><br /></p>
+    <p>I got an old version of GRAVI running on rosetta2 using the guides from <a
+            href="https://github.com/M0REKZ/PortingMacGames/blob/Principal/Unity/Unity%20Porting%20Guide.md"
+            rel="nofollow" target="_blank">here</a> and <a
+            href="https://github.com/boggydigital/mac-gaming-guides/blob/main/common/unity-32-to-64.md" rel="nofollow"
+            target="_blank">here</a>, i tested the old and the newer version of the game, but the newer will crash with
+        a black screen (older was based on unity 4.5.5f1 while the newer would be 2020.3.33f1, the how it works for the
+        unityplayer changes a lot at 2020 and i think it would be a LOT of harder making work games made in newer unity
+        versions.)</p>
+    <p><br /></p>
+    <p>but well, the thing is basically the same but you need to move some extra folders:</p>
+    <p><br /></p>
+    <p>NOTE: FILE PATHS AND RESOURCES MAY CHANGE ON DIFFERENT UNITY VERSIONS, THIS IS AN EXAMPLE FOR A UNITY 4.5.5F1
+        GAME</p>
+    <p><br /></p>
+    <p>To Download the game write in your web browser "steam://open/console" and open steam, then write on it
+        "download\_depot 247310 247311 5524942055625287734" (only do this if you have gravi on steam)</p>
+    <p><br /></p>
+    <p><br /></p>
+    <p>Pick up the UnityPlayer that you downloaded and copy it to somewhere, show package contents</p>
+    <p><br /></p>
+    <p>Move the "Gravi\_Steam\_v1.13b\_Data" Folder to inside "Contents" folder and rename it to simply "Data"</p>
+    <p><br /></p>
+    <p>now go inside the Data folder and look for the "Plugins" and "Resources" Folder</p>
+    <p><br /></p>
+    <p>then do the next: Copy the Plugins Folder to the main "Contents" folder</p>
+    <p><br /></p>
+    <p>go inside the "Resources" Folder that you look before and copy everything inside to the Resources folder that is
+        inside the main Contents Folder</p>
+    <p><br /></p>
+    <p>Now you can run the game the most "Natively" (Rosetta) way on your mac :)</p>
+    <p><br /></p>
+    <p>also, screenshot <i>(it looks like Blogspot lowered the image quality...)</i></p>
+    <p></p>
+    <div class="separator" style="clear: both; text-align: center;"><a href=""
+            style="margin-left: 1em; margin-right: 1em;"><img alt="" data-original-height="2160"
+                data-original-width="3840" height="371" src="./img/gravi1.jpg" width="650" /></a></div><br />
+    <div class="separator" style="clear: both; text-align: center;"><a href=""
+            style="margin-left: 1em; margin-right: 1em;"><img alt="" data-original-height="2160"
+                data-original-width="3840" height="394" src="./img/gravi2.jpg" width="653" /></a></div><br /><br />
+    <p></p>
+</body>

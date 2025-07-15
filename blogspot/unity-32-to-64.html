@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <title>+KZ Website: Guide to port 32-bits Mac Unity games to run on 64-bits macOS</title>
+</head>
+
+<body>
+    <p><br /></p>
+    <p><i></i></p>
+    <div class="separator" style="clear: both; text-align: center;">
+        <div class="separator" style="clear: both; text-align: center;">
+            <div class="separator" style="clear: both; text-align: center;">
+                <div class="separator" style="clear: both; text-align: center;"><i><a href=""
+                            style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="212"
+                                data-original-width="600" height="113" src="./img/unidad.png" width="320" /></a></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p></p>
+    <p><i>Some time ago, i have found a linux article to make windows and mac Unity games run on linux, so i got the
+            idea:
+            <a href="https://www.reddit.com/r/macgaming/comments/yb3nqu/" rel="nofollow" target="_blank">¿Why dont try
+                the
+                same thing but for 32-bits unity games on mac?</a>, when i got a game running, i wrote a guide at
+            AppleGamingWiki and requested it to be added to the main page.... but got deleted, good thing that i found a
+            backup for my guide and reposted it on github.</i></p>
+    <p><i>The topic got ignored a bit, however it started to become more relevant when i posted <a
+                href="https://www.reddit.com/r/macgaming/comments/10jlokt/" rel="nofollow" target="_blank">I Am Bread
+                running on modern macOS</a>, from there other people started updating and porting different games.</i>
+    </p>
+    <p><i>This is a copypaste of the same guide that i wrote some time ago, <a
+                href="https://github.com/M0REKZ/PortingMacGames/blob/Principal/Unity/Unity%20Porting%20Guide.md"
+                rel="nofollow" target="_blank">THAT WAS ON GITHUB</a>, anyways, BoggyDigital improved my guide and saved
+            it
+            on github, i was also contributing adding compatible games, expanding the guide, and even adding a
+            Windows/Linux
+            to Mac guide for unity games, all of these can be found&nbsp;<a
+                href="https://github.com/boggydigital/mac-gaming-guides/blob/main/common/unity-porting.md"
+                rel="nofollow" target="_blank">HERE</a>.</i></p>
+    <p><i>Now... copypaste:</i></p>
+    <p><br /></p>
+    <p>NOTE: THIS GUIDE IS NOT FOR GAME PIRACY, ONLY USE IT FOR GAMES THAT YOU LEGALLY OWN.</p>
+    <p><br /></p>
+    <p>Also this guide was based on a (now deleted) guide to make work mac and windows unity games on linux (what is
+        technically possible with some windows and linux games on mac too, but only with few games).</p>
+    <p><br /></p>
+    <p><i>EDIT: found a backup for the original guide somewhere on internet, contains a list of games that could work
+            too</i></p>
+    <p><a href="https://uploads.golmedia.net/uploads/Unity%20Games%20Working%20On%20Linux%20%28User%20Ported%29%20-%20Linux%20Gaming%20Wiki.html"
+            rel="nofollow"
+            target="_blank"><i>https://uploads.golmedia.net/uploads/Unity%20Games%20Working%20On%20Linux%20%28User%20Ported%29%20-%20Linux%20Gaming%20Wiki.html</i></a><br />
+    </p>
+    <p>---------------------------------</p>
+    <p><br /></p>
+    <p><br /></p>
+    <p>Some very old Unity games on Steam are 32-Bits only, however, since Unity 4.2, they started supporting 64-Bits
+        apps,
+        and these games that are from Unity 4.2 and above were not made with 64-Bits architecture (maybe because
+        developer
+        ignorance, laziness, or problems while converting to 64-bits), so let's do it on our own.</p>
+    <p><br /></p>
+    <p>(This guide is just to replace 32bits UnityPlayer with a 64bits one)</p>
+    <p><br /></p>
+    <p><br /></p>
+    <p><br /></p>
+    <p>##Checking Game Unity Version##</p>
+    <p><br /></p>
+    <p>- Download The Game (obvious)</p>
+    <p><br /></p>
+    <p>- Get Into the Game Folder</p>
+    <p><br /></p>
+    <p>- Right Click the Game and select "Show Package Contents"</p>
+    <p><br /></p>
+    <p>- Search the "data" folder, not every game have it in the same place, if you see that the folder have some
+        "level0,
+        level1..." files, then Open Terminal</p>
+    <p><br /></p>
+    <p>- Write: "strings", add an space and Drag the "level0" file into the terminal window, then add: "| head -1" and
+        you
+        should already have the Unity version.</p>
+    <p><br /></p>
+    <p>- You will see that the version ends with something like "p1" or "f2", this is important, that indicates some
+        specific versions of this version (yeah), "p" is for patch, and "f" is for final (or just normal version), maybe
+        will be a little more harder to find patched versions, betas, and release candidates</p>
+    <p><br /></p>
+    <p>- IF THE UNITY VERSION IS BELOW 4.2, YOU CANT PORT THIS GAME (or at least not using this metod)</p>
+    <p><br /></p>
+    <p><br /></p>
+    <p>Well, now you got the Unity version that the game needs... now you need to download THE SAME Unity version,
+        otherwise, the game simply wont launch.</p>
+    <p><br /></p>
+    <p>##Obtaining UnityPlayer##</p>
+    <p><br /></p>
+    <p>You can get the unity version you want from the official unity webpage, you dont need a license to download and
+        unpack it (only for using Unity app), however, it looks like they updated some old unity packages to have a 2020
+        UnityPlayer instead of the needed, and it wont work if we want to port a very old game, so, its recommended to
+        search the file you need on the archive.org wayback machine.</p>
+    <p><br /></p>
+    <p>- Download correspondent Unity Version (it may be a pkg file or a dmg)</p>
+    <p><br /></p>
+    <p>- For pkg files you can install it.. or extract the contents with terminal or <a
+            href="https://apps.apple.com/us/app/the-unarchiver/id425424353?mt=12" rel="nofollow" target="_blank">The
+            Unarchiver</a> (or just another software for that), in case that there are other pkg files inside, simply
+        Right
+        Click "Unity.pkg" and "Show Package Contents", then search the "Payload" File and change the name to
+        "Payload.zip",
+        now you can access to Unity app without installing it.</p>
+    <p><br /></p>
+    <p>- For dmg simply drag Unity.app to somewhere on your computer, but if it is a pkg file, drag and drop it, and see
+        the
+        step above.</p>
+    <p><br /></p>
+    <p>- Now that you have access to Unity application, Right Click it and "Show Package Contents", now you can see
+        files
+        inside Unity app.</p>
+    <p><br /></p>
+    <p>- Now you need to enter to "PlaybackEngines" Folder, to "MacStandaloneSupport", and "Variations", (however, if
+        you
+        see a "Source" Folder inside "MacStandaloneSupport" and you find a xcode project file, it looks like you
+        downloaded
+        a package with a modern UnityPlayer, it wont work for needed game, you will need to found original pkg on
+        archive.org wayback machine)</p>
+    <p><br /></p>
+    <p>- You will see folders like "macosx64_development_mono" you will prefer to use the "x64_nondevelopment",
+        "universal_nondevelopment" or "arm64_nondevelopment" ones but not the "x32_nondevelopment" one (Note: there are
+        two
+        types of universal apps, one that have "ppc","32bits","64bits" support, and other that have "64bits","arm64"
+        support, the first one can be found on Unity 4.2 and above, but the second one only can be found in modern Unity
+        versions along with the "arm64 only" app, so instead of using the first universal app, you may prefer to simply
+        use
+        the "x64" one)</p>
+    <p><br /></p>
+    <p>- Copy your selected folder to somewhere in your computer, Right Click the app inside and select "Show Package
+        Contents", go to "Contents", "MacOS", and you will find the UnityPlayer Binary, copy it to some place on your
+        computer, do the same with the content in "Frameworks" Folder so you can have it close for the next steps</p>
+    <p><br /></p>
+    <p>##Replacing Game UnityPlayer##</p>
+    <p><br /></p>
+    <p>Time of Truth</p>
+    <p><br /></p>
+    <p>Make a backup of your game app so, if you do something wrong, you can retry</p>
+    <p><br /></p>
+    <p>Right Click the game app and "Show Package Contets", go to "Contents", "MacOS"</p>
+    <p><br /></p>
+    <p>Copy your UnityPlayer Binary inside</p>
+    <p><br /></p>
+    <p>Go back and go to Frameworks, copy the files that you got before.</p>
+    <p><br /></p>
+    <p>Open terminal, drag "UnityPlayer" in the window, add a space, write "-logfile", add another space, and write
+        "~/Desktop/gamelogfile.txt", run this command everytime you want to run UnityPlayer, so if the app crash/bugs,
+        you
+        can see what to do (sometimes some extra libraries is needed, you can found them inside Unity app, and search on
+        internet for the third-party ones)</p>
+    <p><br /></p>
+    <p>If you did all in the right way (and the game is really compatible), Congratulations!!, The game now are running
+        on a
+        modern mac!!, you may like to replace the original game binary inside "MacOS" folder with the UnityPlayer binary
+        and
+        change the name.</p>
+    <p><br /></p>
+    <p><br /></p>
+</body>

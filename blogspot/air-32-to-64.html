@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <title>+KZ Website: Guide to port Adobe AIR Games and Apps to macOS</title>
+</head>
+
+<body>
+    <p></p>
+    <div class="separator" style="clear: both; text-align: center;">
+        <div class="separator" style="clear: both; text-align: center;">
+            <div class="separator" style="clear: both; text-align: center;"><br /></div>
+            <div class="separator" style="clear: both; text-align: center;"><br /></div>
+            <div class="separator" style="clear: both; text-align: center;">
+                <div class="separator" style="clear: both; text-align: center;"><a href=""
+                        style="margin-left: 1em; margin-right: 1em;"><img alt="" data-original-height="212"
+                            data-original-width="600" height="113" src="./img/aire.jpeg" width="320" /></a></div>
+            </div><br />
+        </div>
+    </div>
+    <p></p>
+    <p>Some time ago, someone on Reddit (u/HomeStarRunnerTron) posted a comment where he said that you can run <a
+            href="https://www.reddit.com/r/macgaming/comments/10u02wt/comment/j7cr7s8/?context=3" rel="nofollow"
+            target="_blank">32-Bits Adobe AIR Games on Modern macOS</a>&nbsp;by taking Resources folder and put it on a
+        64-Bits AIR game, i suggested him to make a guide about it, but it have been 2 months... And also i ended
+        figuring out how to do it without a secondary game or using paid software like Animate, so, i think at this
+        point i could write the guide without problems.<br /><br />Due to AIR is just "<u>Flash Player</u> with a
+        different name", i think most AIR apps from different Platforms (Like Linux and Windows) could be ported to
+        macOS and vice versa. <u>Also, the latest AIR version is actually a Universal 2 App, so most AIR apps could be
+            ported even to Apple Silicon.</u><br /><br />So, actually there are <i>two</i>&nbsp;types of AIR
+        apps:<br /><br />A common AIR app: An app that requires the user install Adobe AIR Runtime
+        <i>separately,</i>&nbsp;this one could be an <span style="font-family: courier;">.air</span> installation
+        package, or an <span style="font-family: courier;">.app</span> bundle.
+    </p>
+    <p>Captive runtime bundle: An app that already&nbsp;<i>includes</i> the Adobe AIR Runtime inside, looks like this
+        one only can be obtained as an <span style="font-family: courier;">.app</span><span
+            style="font-family: arial;">&nbsp;</span>bundle (I think most people would prefer this one).</p>
+    <p>Actually you can build a Captive Runtime Bundle using <a
+            href="https://help.adobe.com/en_US/air/build/WSfffb011ac560372f709e16db131e43659b9-8000.html" rel="nofollow"
+            target="_blank">ADT from the Adobe AIR SDK</a>, however, that thing is tricky to use for people that never
+        developed apps using AIR, and also, for the thing we are looking, is not really necessary to overcomplicate
+        everything with that, ¡You just need to copy some files and the Game will run!</p>
+    <p><br /></p>
+    <h2 style="text-align: left;"><span style="font-size: large;">Porting the App as Captive runtime bundle</span></h2>
+    <p><br /></p>
+    <p>Is not really that hard...<br /><br /></p>
+    <ol style="text-align: left;">
+        <li><a href="https://airsdk.harman.com/download" rel="nofollow" target="_blank">Download the Latest AIR SDK</a>.
+        </li>
+        <li>Make sure you have the game installed.</li>
+        <li>Copy <span style="font-family: courier;">Template.app</span> from <span
+                style="font-family: courier;">/AIRSDK_MacOS/runtimes/air/mac/Adobe
+                AIR.framework/Versions/1.0/Resources/Template.app</span> <span style="font-family: georgia;">to
+                somewhere that's easy to access.</span></li>
+        <li><span style="font-family: georgia;">Do Right-Click -&gt; Show Package Contents, and go to
+                /Template.app/Contents/MacOS/</span></li>
+        <li><span style="font-family: georgia;">Open a new Finder window, but don't close the other one.</span></li>
+        <li><span style="font-family: georgia;">Copy CaptiveAppEntry from /AIRSDK_MacOS/lib/nai/lib/CaptiveAppEntry to
+                the former Finder Window, and Delete "Template" thats inside /Contents/MacOS/</span></li>
+        <li><span style="font-family: georgia;">Copy Adobe AIR.framework from
+                AIRSDK_MacOS/runtimes/air-captive/mac/Adobe AIR.framework/ to /Template.app/Contents/Frameworks/</span>
+        </li>
+        <ol>
+            <li>IMPORTAN NOTE: ¡Dont confuse /runtimes/air-captive and /runtimes/air folders!</li>
+        </ol>
+        <li><span style="font-family: georgia;">Now, depending from what platform the game is, the folder that we need
+                could be the next ones:</span>&nbsp;</li>
+        <ol>
+            <li><span style="font-family: georgia;">On macOS .app the folder should be
+                    /Game.app/Contents/Resources/</span></li>
+            <li><span style="font-family: georgia;">On Windows and i think Linux too, should be the game folder
+                    itself</span></li>
+            <li><span style="font-family: georgia;">On iOS, should be the root of Game.app</span></li>
+            <li><span style="font-family: georgia;"><i>In any Case</i>&nbsp;the game data folder should contain a
+                    "META-INF" folder and a .swf file, if you find it, copy game data folder to /Template.app/Contents/
+                    and rename it to "Resources"</span></li>
+        </ol>
+        <li><span style="font-family: georgia;">Open Info.plist and modify the next keys:</span></li>
+        <ol>
+            <li><span style="font-family: georgia;">at&nbsp;&lt;key&gt;CFBundleExecutable&lt;/key&gt; Replace the
+                    &lt;string&gt; with CaptiveAppEntry</span></li>
+            <li><span style="font-family: georgia;">at&nbsp;&lt;key&gt;CFBundleIdentifier&lt;/key&gt; Modify the
+                    identifier so you prevent possible minimal problems at the Operative System</span></li>
+            <li><span style="font-family: georgia;">Optionally, you can add this, so you can copy a macOS icon to
+                    Resources, only add it if you are porting an app from a different platform thats not macOS:</span>
+            </li>
+            <li><span style="font-family: georgia;">&nbsp;</span>&nbsp;<span
+                    style="font-family: georgia;">&lt;key&gt;CFBundleIconFile&lt;/key&gt;</span></li>
+            <li><span style="font-family: georgia;">&nbsp; &lt;string&gt;icon.icns&lt;/string&gt;</span></li>
+        </ol>
+        <li><span style="font-family: georgia;">¡Now the game is ready! you can just run it and see how it works</span>
+        </li>
+        <li><span style="font-family: georgia;">Otherwise, you should try to make a common AIR app</span></li>
+    </ol>
+    <p style="text-align: left;"><br /></p>
+    <p></p>
+    <h2 style="text-align: left;">Porting the app as a common AIR app</h2>
+    <p style="text-align: left;">Is the same as above, but:</p>
+    <p style="text-align: left;"></p>
+    <ul style="text-align: left;">
+        <li>&nbsp;Instead of CaptiveAppEntry you must use ExtendedAppEntryTemplate64 from
+            /AIRSDK_MacOS/runtimes/air/mac/Adobe AIR.framework/Versions/1.0/Resources/ExtendedAppEntryTemplate64</li>
+        <ul>
+            <li>IMPORTAN NOTE: ¡Dont confuse /runtimes/air-captive and /runtimes/air folders!</li>
+        </ul>
+        <li>Instead of Adobe AIR.framework from /runtimes/air-captive/ you must use the one from /runtimes/air/</li>
+        <li>Remember to use the correct executable name when editing Info.plist</li>
+    </ul>
+    <div><br /></div>
+    <h2 style="text-align: left;">Troubleshooting</h2>
+    <h4 style="text-align: left;">Trying an old AIR runtime</h4>
+    <p style="text-align: left;">Some important update happened at some AIR version where certain apps would not work,
+        so in that case you could try to use an SDK <u><i>BELOW</i></u>&nbsp;AIR 33.1.1.758 (all of them can be
+        found&nbsp;<a href="https://airsdk.harman.com/release_notes" rel="nofollow" target="_blank">HERE</a>), sadly,
+        these old AIR versions are only available as Intel Binaries on Mac.</p>
+    <h4 style="text-align: left;">¡¡My app wont run!!</h4>
+    <p style="text-align: left;">Did you forgot to replace the "Template" from /Contents/MacOS/ and change the
+        executable name from Info.plist?...</p>
+    <p style="text-align: left;"><br /></p>
+    <p></p>
+</body>
