@@ -1,16 +1,18 @@
 # You may be looking for:
 
-## [My Discord Server](https://discord.gg/K4YNyXxeE8)
+## My Discord Server:
+
+[![My Discord Server](img/discord-logo.png)](https://discord.gg/K4YNyXxeE8)
 
 ## My Webcomics:
 
-* [![Brain Evil webcomic](img/be-logo.png)](https://brain-evil.webcomic.ws/)
+[![Brain Evil webcomic](img/be-logo.png)](https://brain-evil.webcomic.ws/)
 
 ## My DDNet Mods
 
-* [![Kaizo-Insta](img/kz-insta.png)](Kaizo-insta/)
+[![Kaizo-Insta](img/kz-insta.png)](Kaizo-insta/)
 
-* [![Kaizo Network Documentation](img/kz-net.png)](Kaizo-Network/)
+[![Kaizo Network Documentation](img/kz-net.png)](Kaizo-Network/)
 
 
 ## My DDNet Servers IP:
