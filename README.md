@@ -2,7 +2,7 @@
 
 ## My Discord Server:
 
-[![My Discord Server](img/discord-logo.png)](https://discord.gg/K4YNyXxeE8)
+[![My Discord Server](img/discord-logo.png)](/discord.html)
 
 ## My Webcomics:
 
@@ -31,4 +31,6 @@
 ## Other:
 
 * [Blogspot backup](blogspot/)
+* [My DDNet Skins](Skins/)
+
 * [Buy me a coffee](https://ko-fi.com/pluskaizo)

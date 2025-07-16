@@ -6,7 +6,7 @@ A DDrace Server Network for DDNet made by me, you can submit maps on there to be
 
 ## Where can i submit maps?
 
-[In my Discord server](https://discord.gg/K4YNyXxeE8)
+[In my Discord server](/discord.html)
 
 ## What are +KZGame and +KZFront Layers?
 
