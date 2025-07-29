@@ -4,6 +4,10 @@
 
 [![My Discord Server](img/discord-logo.png)](/discord.html)
 
+## My Projects:
+
+[![PLUSKAIZO](img/pluskaizologo.png)](PLUSKAIZO/)
+
 ## My Webcomics:
 
 [![Brain Evil webcomic](img/be-logo.png)](https://brain-evil.webcomic.ws/)
