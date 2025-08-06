@@ -1,0 +1,117 @@
+---
+layout: page
+---
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <title>PLUSKAIZO by +KZ</title>
+</head>
+
+<body>
+    <div style="background-color: rgba(0, 0, 0, 0);display: inline-block;"></div>
+    <div
+        style="vertical-align: top;background-color: rgba(65, 65, 65, 0.7);align-self: center;text-align: center; display: inline-block;border-radius: 20px;">
+
+
+        <br>
+
+        <h1>How to create levels using Tiled</h1>
+
+        <br>
+
+        <p>
+            PLUSKAIZO currently has no Level Editor (I am working on one), however if you really want to create your
+            level, you will need to use a
+            external level editor named "Tiled"
+
+            <br>
+            <br>
+
+        <h2>Setting up the editor:</h2>
+        <ul style="text-align: left; display: inline-block;">
+            <li><b>Step 1:</b> Download Tiled: <a href="https://www.mapeditor.org/">https://www.mapeditor.org/</a></li>
+            <li><b>Step 2:</b> Create a new Tiled Project</li>
+            <li><b>Step 3:</b> Edit Tiled Preferences (IMPORTANT):<br>
+                On Export Options, set "Resolve object types and properties" to <b>True</b></li>
+            <li><b>Step 4:</b> Now time to make levels...<br>
+                You will need to download this file and extract its content:<br>
+                <a
+                    href="https://cdn.discordapp.com/attachments/1344474062092767345/1402402777703125002/tilesets.zip?ex=6893c8dd&is=6892775d&hm=93060505e7f29e3a3514177185a48273cd7ec3e74594bd7520f8249c96d35a6d&">Download
+                    Tileset and Entities</a><br>
+                Put the extracted files on the Project folder
+            </li>
+            <li><b>Step 5:</b>Add the two tilesets to the Tiled Project</li>
+        </ul>
+        <br>
+        <h2>Mapping:</h2>
+
+        To Start Mapping you need to know the level structure for Tiled format
+        <br><br>
+        A PLUSKAIZO Level in Tiled format has the next folder structure:
+        <br>
+        <ul style="text-align: left; display: inline-block;">
+            <li>LEVEL (Folder with level name)</li>
+            <ul>
+                <li>section_1.tmj</li>
+                <li>section_2.tmj</li>
+                <li>section_3.tmj</li>
+                <li>section_x.tmj</li>
+            </ul>
+        </ul>
+
+        <br>
+
+        So you need to create a folder in your project with your level name, and inside THAT folder create a
+        "section_1.tmx" file (DONT CREATE IT WITH THE .tmj FORMAT)
+        <br>
+        <br>
+
+        Now we want to add a layer to our level, that is done by right-clicking inside the "Layers" box, adding a Tile
+        Layer, adding a Objects Layer... and then selecting both layers, right-clicking them and adding them to a
+        group.....
+        <br>
+        <br>
+        WHY??!?? Due to the way Tiled works, we can not put entities and tiles in the same layer, so PLUSKAIZO will
+        understand Groups of Layers as actual Layers, note that on those Groups you must only add one Tiles Layer and
+        one Objects Layer, otherwise things wont work...
+        <br>
+        <br>
+        Now you can start mapping:<br>
+        To place TILES, select the Tile Layer from the group and the grass.tsx tileset.
+        <br>
+        To place ENTITIES, select the Object Layer from the group and the entities.tsx tileset.
+        <br>
+        <br>
+        <h2>Exporting the map:</h2>
+
+        <br>
+
+        To play the map in PLUSKAIZO, you must EXPORT it as a .TMJ file, dont SAVE it as .TMJ format, EXPORT it, there
+        is a difference when using any of the two options, and "SAVING" it will not store information that the game
+        needs to understand the level...<br>
+        <br>
+        Why things are this way? I dont know, ask Tiled developers why they did things this way
+        <br>
+        <br>
+        Now that you exported the section_1.tmx as section_1.tmj and have that section inside a folder with your level
+        name, put that folder in the Levels folder which is located at:<br>
+        C:/Users/"YOURNAME"/PLUSKAIZO/data/levels/
+        <br>
+        <br>
+        Now you can open PLUSKAIZO and select the level to try it, if you can not play... maybe you did something
+        wrong...
+        <br>
+        <br>
+        (i really want to make a in-game editor.......)
+        <br>
+        </p>
+
+
+    </div>
+    <div style="background-color: rgba(0, 0, 0, 0);display: inline-block;"></div>
+
+    <br>
+
+    <p style="text-align: center;">PLUSKAIZO © Benjamín Gajardo All rights reserved</p>
+</body>
