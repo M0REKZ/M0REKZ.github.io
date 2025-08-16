@@ -21,8 +21,7 @@
 
 ## My DDNet Servers IP:
 
-* Instagib/Vanilla PVP 1: 159.69.89.235:8303
-* Instagib/Vanilla PVP 2: 159.69.89.235:8304
+* Instagib/Vanilla PVP: 159.69.89.235:8304
 * Test DDrace: 159.69.89.235:8305
 * Kaizo Network 1: 159.69.89.235:8311
 * Kaizo Network 2: 159.69.89.235:8312
@@ -37,4 +36,4 @@
 * [Blogspot backup](blogspot/)
 * [My DDNet Skins](Skins/)
 
-* [Buy me a coffee](https://ko-fi.com/pluskaizo)
+* [Buy me a energy drink](https://ko-fi.com/pluskaizo)
