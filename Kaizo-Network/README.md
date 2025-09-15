@@ -1,5 +1,7 @@
 ![logo](./img/g135.png)
 
+# Kaizo Network is closed, this page is keeped for archiving purposes
+
 ## What is it?
 
 A DDrace Server Network for DDNet made by me, you can submit maps on there to be played by other people
@@ -16,6 +18,4 @@ Custom game layers that only work on Kaizo-Network server and editor, **saving m
 
 ## Servers IP
 
-* Kaizo Network 1: 159.69.89.235:8311
-* Kaizo Network 2: 159.69.89.235:8312
-* Kaizo Network 3: 159.69.89.235:8313
+* No IPs
