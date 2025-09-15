@@ -21,15 +21,12 @@
 
 ## My DDNet Servers IP:
 
-* Instagib/Vanilla PVP: 159.69.89.235:8304
-* Test DDrace: 159.69.89.235:8305
-* Kaizo Network 1: 159.69.89.235:8311
-* Kaizo Network 2: 159.69.89.235:8312
-* Kaizo Network 3: 159.69.89.235:8313
+* Instagib/Vanilla PVP: 38.7.199.195:8304
+* Pointer's TW+: 38.7.199.195:8309
 
 ## My Luanti/Minetest Servers IP:
 
-* +KZ Crazy Server: 159.69.89.235:8300
+* +KZ Crazy Server: 38.7.199.195:8300
 
 ## Other:
 
