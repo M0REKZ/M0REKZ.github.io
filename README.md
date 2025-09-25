@@ -18,16 +18,6 @@
 
 [![Kaizo Network Documentation](img/kz-net.png)](Kaizo-Network/)
 
-
-## My DDNet Servers IP:
-
-* Instagib/Vanilla PVP: 38.7.199.195:8304
-* Pointer's TW+: 38.7.199.195:8309
-
-## My Luanti/Minetest Servers IP:
-
-* +KZ Crazy Server: 38.7.199.195:8300
-
 ## Other:
 
 * [Blogspot backup](blogspot/)
