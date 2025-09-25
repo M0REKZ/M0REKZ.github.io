@@ -1,14 +1,14 @@
 ![logo](./img/g135.png)
 
-# Kaizo Network is closed, this page is keeped for archiving purposes
-
 ## What is it?
 
-A DDrace Server Network for DDNet made by me, you can submit maps on there to be played by other people
+A DDNet mod made by me (+KZ) that adds extra mapping features that probably never will be added to DDNet, before this Kaizo Network also was a Server Network for DDNet where you could submit maps on there to be played by other people, however i could not keep maintaining the servers so now Kaizo Network is just a mod.
 
-## Where can i submit maps?
+## Is there a place where i can submit maps made for Kaizo Network?
 
-[In my Discord server](/discord.html)
+You can share your creations in [my Discord server](/discord.html)
+
+But you can also submit your maps to a friendly community known as "TeeCloud Network", which is using Kaizo Network as their main mod: https://discord.gg/crS6bzNNqm
 
 ## What are +KZGame and +KZFront Layers?
 
@@ -16,6 +16,3 @@ Custom game layers that only work on Kaizo-Network server and editor, **saving m
 
 [Kaizo-Network Tile Documentation](Doc/)
 
-## Servers IP
-
-* No IPs
