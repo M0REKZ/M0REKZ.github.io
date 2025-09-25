@@ -8,7 +8,7 @@ A DDNet mod made by me (+KZ) that adds extra mapping features that probably neve
 
 You can share your creations in [my Discord server](/discord.html)
 
-But you can also submit your maps to a friendly community known as "TeeCloud Network", which is using Kaizo Network as their main mod: https://discord.gg/crS6bzNNqm
+But you can also submit your maps to a friendly community known as "TeeCloud Network", which is using Kaizo Network as their main mod: [https://discord.gg/crS6bzNNqm](https://discord.gg/crS6bzNNqm)
 
 ## What are +KZGame and +KZFront Layers?
 
