@@ -2,6 +2,8 @@
 
 - [Kaizo Network Documentation](#kaizo-network-documentation)
 - [Map Settings](#map-settings)
+  - [Kaizo Network config options for maps:](#kaizo-network-config-options-for-maps)
+  - [Kaizo Network config options for compatibility with other mods](#kaizo-network-config-options-for-compatibility-with-other-mods)
 - [Tiles](#tiles)
   - [Both +KZGame and +KZFront:](#both-kzgame-and-kzfront)
     - [ID 1: Switchable Solid Tile](#id-1-switchable-solid-tile)
@@ -19,6 +21,8 @@
     - [ID 13: Mine](#id-13-mine)
     - [ID 14: Play map sound (only for player)](#id-14-play-map-sound-only-for-player)
     - [ID 17: Play map sound (in tile position, only for player)](#id-17-play-map-sound-in-tile-position-only-for-player)
+    - [ID 21: Laser recover jump ON](#id-21-laser-recover-jump-on)
+    - [ID 22: Laser recover jump OFF](#id-22-laser-recover-jump-off)
   - [+KZGame Only:](#kzgame-only)
     - [ID 15: No damage](#id-15-no-damage)
     - [ID 16: Hittable Switch/Button](#id-16-hittable-switchbutton)
@@ -39,8 +43,9 @@
 
 # Map Settings
 
-* sv_portal_mode "Portal spawning behavior (0 = on every tile, 1 = only on allow portal tile, 2 = pprace compatibility)"
-* sv_portal_projectile "Use Kaizo-Insta Portal Projectile instead of Laser"
+## Kaizo Network config options for maps:
+
+* sv_portal_mode "Portal spawning behavior (0 = on every tile, 1 = only on allow portal tile, 2 = PPRace compatibility)"
 * sv_portal_laser_reach "Portal gun laser reach"
 * sv_max_health "Max amount of life"
 * sv_damage_laser_cooldown "Cooldown for damage laser"
@@ -48,6 +53,17 @@
 * sv_damage_turret_dmg "Plasma turret damage"
 * sv_damage_turret_explosive_dmg "Explosive plasma turret damage"
 * sv_damage_mine_dmg "Mines damage"
+* sv_kaizo_laser_recover_jump "Player recovers jump when hit by laser"
+
+## Kaizo Network config options for compatibility with other mods
+
+These options were intended for compatibility with maps made for other mods
+
+On Kaizo Network they may not work equal to the original feature or may have some Kaizo Network specific extensions
+
+* sv_portal_projectile "Kaizo-Insta compatibility: Use Portal Projectile instead of Laser"
+* sv_kog_qquads_enable "Gores compatibility: Moving tiles"
+* sv_kog_grenade_tele "Gores compatibility: Teleport grenade"
 
 # Tiles
 
@@ -189,6 +205,24 @@ When touched, will play a sound in the tile position only for that player
 
 * Number: Switch number
 * Value1: Map sound ID
+
+### ID 21: Laser recover jump ON
+
+![alt text](img/tilejumpon.png)
+
+Allows player to shoot a laser that will reload jumps for any player that the laser hit
+
+Ability can be removed with [ID 22: Laser recover jump OFF](#id-22-laser-recover-jump-off)
+
+* Number: Switch Number
+
+### ID 22: Laser recover jump OFF
+
+![alt text](img/tilejumpoff.png)
+
+Removes ability given by [ID 21: Laser recover jump ON](#id-21-laser-recover-jump-on)
+
+* Number: Switch Number
 
 ## +KZGame Only:
 
