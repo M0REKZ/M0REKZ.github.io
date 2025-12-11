@@ -1,5 +1,7 @@
 ![logo](./img/g135.png)
 
+# KAIZO NETWORK HAS BEEN DISCONTINUED, FEEL FREE TO FORK THIS, BUT KEEP YOUR FORK SOURCE CODE PUBLIC AS THE LICENSE SAYS
+
 ## What is it?
 
 A DDNet mod made by me (+KZ) that adds extra mapping features that probably never will be added to DDNet, before this Kaizo Network also was a Server Network for DDNet where you could submit maps on there to be played by other people, however i could not keep maintaining the servers so now Kaizo Network is just a mod.
