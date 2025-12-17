@@ -6,6 +6,8 @@
 
 ## My Projects:
 
+[![Brain Evil: Dark World](img/bedw-logo.png)](BEDW/)
+
 [![PLUSKAIZO](img/pluskaizologo.png)](PLUSKAIZO/)
 
 ## My Webcomics:
