@@ -14,7 +14,7 @@
 
 [![Brain Evil webcomic](img/be-logo.png)](https://brain-evil.webcomic.ws/)
 
-## My DDNet Mods
+## Discontinued Projects:
 
 [![Kaizo-Insta](img/kz-insta.png)](Kaizo-insta/)
 
