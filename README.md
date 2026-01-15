@@ -1,6 +1,6 @@
 # You may be looking for:
 
-## My Discord Server:
+## Click on the image below for the Brain Evil Discord Server!:
 
 [![My Discord Server](img/discord-logo.png)](/discord.html)
 
@@ -8,9 +8,9 @@
 
 [![Brain Evil: Dark World](img/bedw-logo.png)](BEDW/)
 
-[![PLUSKAIZO](img/pluskaizologo.png)](PLUSKAIZO/)
+## Paused Projects:
 
-## My Webcomics:
+[![PLUSKAIZO](img/pluskaizologo.png)](PLUSKAIZO/)
 
 [![Brain Evil webcomic](img/be-logo.png)](https://brain-evil.webcomic.ws/)
 
