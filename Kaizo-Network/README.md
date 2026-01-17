@@ -14,9 +14,7 @@ Feel free to fork it and maybe do your own continuation, but be aware that the l
 
 ## Is there a place where i can submit maps made for Kaizo Network?
 
-You can share your creations in [my Discord server](/discord.html)
-
-But you can also submit your maps to a friendly community known as "TeeCloud Network", which is using Kaizo Network as their main mod: [https://discord.gg/crS6bzNNqm](https://discord.gg/crS6bzNNqm)
+You can share your creations in a friendly community known as "TeeCloud Network", which is using Kaizo Network as their main mod: [https://discord.gg/crS6bzNNqm](https://discord.gg/crS6bzNNqm)
 
 ## What are +KZGame and +KZFront Layers?
 
