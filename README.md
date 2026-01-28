@@ -8,7 +8,7 @@
 
 [![Brain Evil: Dark World](img/bedw-logo.png)](BEDW/)
 
-[![Kaizo Client](img/kzclient.png)](https://github.com/M0REKZ/kaizo-client)
+[![Kaizo Client](img/kzclient.webp)](https://github.com/M0REKZ/kaizo-client)
 
 ## Paused Projects:
 
