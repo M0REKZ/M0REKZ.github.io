@@ -24,7 +24,9 @@
 
 ## Other:
 
-* [Blogspot backup](blogspot/)
-* [My DDNet Skins](Skins/)
+* [Blogspot backup](blogspot/) -- Backup for the posts i had in Blogspot
+* [kaizo-skyblock](https://github.com/M0REKZ/kaizo-skyblock) -- Minetest Skyblock mod modified for the Luanti server i had
+* [kaizo-bombtag](https://github.com/M0REKZ/kaizo-bombtag) -- DDNet BOMB game mode merged with Kaizo Network with some random extra features
+* [My DDNet Skins](Skins/) -- List of my DDNet skins (may be outdated)
 
 * [Buy me a energy drink](https://ko-fi.com/pluskaizo)
