@@ -6,6 +6,8 @@
 
 A DDNet mod made by me (+KZ) that adds extra mapping features that probably never will be added to DDNet, before this Kaizo Network also was a Server Network for DDNet where you could submit maps on there to be played by other people, however i could not keep maintaining the servers so now Kaizo Network is just a mod.
 
+Later it was hosted by TeeCloud community, but they stopped hosting the main servers.
+
 ## Where is the source code?
 
 The source code for the discontinued Kaizo Network server can be found at the "discontinued-server" branch of this repo: [https://github.com/M0REKZ/kaizo-client/tree/discontinued-server](https://github.com/M0REKZ/kaizo-client/tree/discontinued-server)
