@@ -12,10 +12,6 @@ The source code for the discontinued Kaizo Network server can be found at the "d
 
 Feel free to fork it and maybe do your own continuation, but be aware that the license used in Kaizo Network is different from the one in DDNet: You can NOT make your fork closed source.
 
-## Is there a place where i can submit maps made for Kaizo Network?
-
-You can share your creations in a friendly community known as "TeeCloud Network", which is using Kaizo Network as their main mod: [https://discord.gg/crS6bzNNqm](https://discord.gg/crS6bzNNqm)
-
 ## What are +KZGame and +KZFront Layers?
 
 Custom game layers that only work on Kaizo-Network server and editor, **saving maps on a normal DDNet editor will break the layers content**
