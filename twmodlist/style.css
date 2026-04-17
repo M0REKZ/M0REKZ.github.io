@@ -32,6 +32,10 @@
 
 body
 {
+    color: black;
+    background-image: none;
+    background: #00374d;
+    background: linear-gradient(338deg, rgb(0, 43, 60) 0%, rgb(0, 60, 73) 50%, rgb(0, 73, 87) 100%);
 }
 
 .mod-table
