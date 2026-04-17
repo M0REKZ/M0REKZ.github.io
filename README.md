@@ -28,5 +28,6 @@
 * [kaizo-skyblock](https://github.com/M0REKZ/kaizo-skyblock) -- Minetest Skyblock mod modified for the Luanti server i had
 * [kaizo-bombtag](https://github.com/M0REKZ/kaizo-bombtag) -- DDNet BOMB game mode merged with Kaizo Network with some random extra features
 * [My DDNet Skins](Skins/) -- List of my DDNet skins (may be outdated)
+* [Teeworlds archived mod list](twmodlist/) -- List of links to download hard to find/lost Teeworlds mods
 
 * [Buy me a energy drink](https://ko-fi.com/pluskaizo)
