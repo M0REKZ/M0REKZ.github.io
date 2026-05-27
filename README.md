@@ -6,8 +6,6 @@
 
 ## My Projects:
 
-[![Brain Evil: Dark World](img/bedw-logo.png)](BEDW/)
-
 [![Kaizo Client](img/kzclient.webp)](https://github.com/M0REKZ/kaizo-client)
 
 ## Paused Projects:
@@ -15,6 +13,8 @@
 [![PLUSKAIZO](img/pluskaizologo.png)](PLUSKAIZO/)
 
 [![Brain Evil webcomic](img/be-logo.png)](https://brain-evil.webcomic.ws/)
+
+[![Brain Evil: Dark World](img/bedw-logo.png)](BEDW/)
 
 ## Discontinued Projects:
 
