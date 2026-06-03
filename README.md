@@ -1,9 +1,5 @@
 # You may be looking for:
 
-## Click on the image below for the Brain Evil Discord Server!:
-
-[![My Discord Server](img/discord-logo.png)](/discord.html)
-
 ## My Projects:
 
 [![Kaizo Client](img/kzclient.webp)](Kaizo-Client/)
