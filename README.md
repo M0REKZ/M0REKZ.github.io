@@ -6,7 +6,7 @@
 
 ## My Projects:
 
-[![Kaizo Client](img/kzclient.webp)](https://github.com/M0REKZ/kaizo-client)
+[![Kaizo Client](img/kzclient.webp)](Kaizo-Client/)
 
 ## Paused Projects:
 

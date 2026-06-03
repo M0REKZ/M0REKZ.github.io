@@ -1,0 +1,60 @@
+
+body
+{
+    background-color: black;
+}
+
+.main-bg
+{
+    border-radius: 20px;
+    background-color: rgb(84, 84, 84);
+    font-family: sans-serif;
+    color: white;
+    text-align: center;
+    vertical-align: top;
+}
+
+.text-outside-the-bg-thing
+{
+    font-family: sans-serif;
+    color: white;
+    text-align: center;
+    vertical-align: top;
+}
+
+.collapsible-bg-kz
+{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: rgb(125, 125, 125);
+    width: 92%;
+    height: auto;
+    position: relative;
+    left: 4%;
+}
+
+.collapsible-content-kz
+{
+    text-align: left;
+}
+
+.collapsible-header-kz
+{
+    position: relative;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: rgb(43, 43, 43);
+    height: 35px;
+    line-height: 35px;
+    font-size: x-large;
+}
+
+.dev-note
+{
+    vertical-align: bottom;
+    font-size: smaller;
+}
