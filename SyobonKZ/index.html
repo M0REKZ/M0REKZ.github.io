@@ -1,3 +1,6 @@
+---
+layout: page
+---
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +10,7 @@
             margin: 0;
             padding: 0;
             overflow: auto;
-            background: black;
+            background: rgb(164,179,245);
             flex-direction: column;
             display: flex;
             justify-content: center;
@@ -48,6 +51,20 @@
             display: none;
             z-index: 10000;
         }
+
+        #sourcecodelinkkz {
+            color: rgb(242,156,56);
+            text-shadow:
+            -1px -1px 0 black,
+            0px -1px 0 black,
+            1px -1px 0 black,
+            -1px  0px 0 black,
+            0px  0px 0 black,
+            1px  0px 0 black,
+            -1px  1px 0 black,
+            0px  1px 0 black,
+            1px  1px 0 black;
+        }
     </style>
 </head>
 <body>
@@ -61,8 +78,10 @@
     <button id="fullTabBtn">Full Tab</button>
 </div>
 <br>
-<a href="https://github.com/M0REKZ/SyobonKZ" style="font-family:sans-serif;font-style:oblique;">Source code</a>
+<a id="sourcecodelinkkz" href="https://github.com/M0REKZ/SyobonKZ" style="font-family:sans-serif;font-style:oblique;">——&#62; Source code &#60;——</a>
 
+<!--evil br spam to be able to scroll more-->
+<br><br><br><br><br><br>
 <script>
 const canvas = document.getElementById('gameCanvas');
 const fullTabBtn = document.getElementById('fullTabBtn');
