@@ -3,18 +3,139 @@
 <head>
     <meta charset="utf-8">
     <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: black;
+            flex-direction: column;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+        }
+
         #gameCanvas {
-            border: 1px solid #ccc;
+            display: block;
+            border: none;
+        }
+
+        #gameCanvas:fullscreen {
+            width: auto;
+            height: auto;
+            max-width: 100vw;
+            max-height: 100vh;
+            margin: auto;
+        }
+
+        #fullscreenBtn {
+            margin-top: 10px;
+        }
+
+        #fullTabHint {
+            position: fixed;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            padding: 8px 16px;
+            border-radius: 6px;
+
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            font-family: sans-serif;
+            font-size: 14px;
+
+            display: none;
+            z-index: 10000;
         }
     </style>
 </head>
 <body>
 
 <canvas id="gameCanvas"></canvas>
+<div id="fullTabHint">Press Esc to exit Full Tab</div>
+<br>
+<div>
+    <button id="fullscreenBtn">Fullscreen</button>
+    <button id="fullTabBtn">Full Tab</button>
+</div>
 
 <script>
+const canvas = document.getElementById('gameCanvas');
+const fullTabBtn = document.getElementById('fullTabBtn');
+const hint = document.getElementById('fullTabHint');
+
+document.getElementById('fullscreenBtn').addEventListener('click', async () => {
+    try {
+        if (!document.fullscreenElement) {
+            await canvas.requestFullscreen();
+        } else {
+            await document.exitFullscreen();
+        }
+    } catch (err) {
+        console.error('Fullscreen error:', err);
+    }
+});
+
+let fullTab = false;
+hint.style.display = 'none';
+
+function enterFullTab() {
+    fullTab = true;
+
+    canvas.style.position = 'fixed';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
+    canvas.style.width = '100vw';
+    canvas.style.aspectRatio = '480/420';
+    canvas.style.objectFit = 'contain';
+    canvas.style.height = '100vh';
+    canvas.style.zIndex = '9999';
+
+    hint.style.display = 'block';
+
+    fullTabBtn.textContent = 'Exit Full Tab';
+
+    hint.style.display = 'block';
+    setTimeout(() => {
+        if (fullTab) {
+            hint.style.display = 'none';
+        }
+    }, 3000);
+}
+
+function exitFullTab() {
+    fullTab = false;
+
+    canvas.style.position = '';
+    canvas.style.top = '';
+    canvas.style.left = '';
+    canvas.style.width = '';
+    canvas.style.height = '';
+    canvas.style.zIndex = '';
+
+    hint.style.display = 'none';
+
+    fullTabBtn.textContent = 'Full Tab';
+}
+
+fullTabBtn.addEventListener('click', () => {
+    if (fullTab) {
+        exitFullTab();
+    } else {
+        enterFullTab();
+    }
+});
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && fullTab) {
+        exitFullTab();
+    }
+});
+
 window.Module = {
-    canvas: document.getElementById('gameCanvas'),
+    canvas,
 
     locateFile(path) {
         return path;
