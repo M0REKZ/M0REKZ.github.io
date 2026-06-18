@@ -1,8 +1,8 @@
-# You may be looking for:
-
 ## My Projects:
 
 [![Kaizo Client](img/kzclient.webp)](Kaizo-Client/)
+
+[![SyobonKZ](SyobonKZ/logo.png)](SyobonKZ/)
 
 ## Paused Projects:
 
