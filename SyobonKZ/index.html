@@ -396,7 +396,7 @@ document.addEventListener("fullscreenchange", () => {
     console.log("Exited fullscreen");
 
     const touchcontrols = document.getElementById('touchControls');
-    if(touchcontrols.style.display != "none")
+    if(document.getElementById('playButtonMobileBtn').style.display != "none")
         canvas.style.display = "none";
     touchcontrols.style.display = "none";
     exitFullscreenAndUnlock();
