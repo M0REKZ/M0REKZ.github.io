@@ -84,6 +84,7 @@
             -1px  1px 0 black,
             0px  1px 0 black,
             1px  1px 0 black;
+            font-size: 2vw;
         }
 
         #notsourcelink {
@@ -98,6 +99,7 @@
             -1px  1px 0 black,
             0px  1px 0 black,
             1px  1px 0 black;
+            font-size: 2vw;
         }
 
         #touchControls {
@@ -151,8 +153,8 @@
             display: none;
         }
 
-        .playButtonMobile button {
-            font-size: 10vw;
+        button {
+            font-size: 2vw;
             padding: 12px 30px;
             border-radius: 999px;
             color: rgb(242,156,56);
@@ -168,13 +170,42 @@
             1px  1px 0 black;
         }
 
+        select {
+            font-size: 2vw;
+            padding: 12px 30px;
+            border-radius: 999px;
+            color: rgb(242,156,56);
+            text-shadow:
+            -1px -1px 0 black,
+            0px -1px 0 black,
+            1px -1px 0 black,
+            -1px  0px 0 black,
+            0px  0px 0 black,
+            1px  0px 0 black,
+            -1px  1px 0 black,
+            0px  1px 0 black,
+            1px  1px 0 black;
+
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+
+            padding-right: 45px; /* more space for bigger arrow */
+
+            background-image: url("data:image/svg+xml;charset=UTF-8, <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23f29c38' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 8vh;
+        }
+
         @media (pointer: coarse) {
             #sourcecodelinkkz {
-                font-size: x-large;
+                font-size: 7vw;
             }
 
             #notsourcelink {
-                font-size: x-large;
+                font-size: 7vw;
             }
 
             #gameCanvas {
@@ -191,6 +222,16 @@
 
             .playButtonMobile {
                 display: block;
+            }
+
+            button {
+                max-width: fit-content;
+                font-size: 10vw;
+            }
+
+            select {
+                max-width: 80vw;
+                font-size: 10vw;
             }
         }
     </style>
@@ -228,6 +269,22 @@
     <button id="playButtonMobileBtn" onclick="startGameMobile()">Play!</button>
 </div>
 <br>
+<select id="menuLevelSelect">
+  <option value="">Select level</option>
+  <option value="level-1-1">Syobon Action Level 1</option>
+  <option value="level-1-2">Syobon Action Level 2</option>
+  <option value="level-1-3">Syobon Action Level 3</option>
+  <option value="level-1-4">Syobon Action Level 4</option>
+  <option value="level-2-1">Syobon Action 2 Level 1</option>
+  <option value="level-2-2">Syobon Action 2 Level 2</option>
+  <option value="level-2-3">Syobon Action 2 Level 3</option>
+  <option value="level-2-4">Syobon Action 2 Level 4</option>
+  <option value="level-secret-9">Syobon Action 2 "Hidden Level 9"</option>
+  <option value="level-random">Syobon Action "Random Mode"</option>
+  <option value="title-screen">Go to title screen</option>
+</select>
+<br>
+<br><br>
 <a id="sourcecodelinkkz" href="https://github.com/M0REKZ/SyobonKZ" style="font-family:sans-serif;font-style:oblique;">——&#62; Source code &#60;——</a>
 
 <br><br>
@@ -236,6 +293,80 @@
 
 <!--evil br spam to be able to scroll more-->
 <br><br><br><br><br><br>
+
+<script>
+document.getElementById("menuLevelSelect").addEventListener("change", function () {
+  const value = this.value;
+
+    //clear the number keys each change
+    for (let index = 48; index <= 57; index++) {
+        sendKey('keyup', index);
+    }
+
+    //clear F1
+    sendKey('keyup', 112);
+
+    switch(value)
+    {
+        case "title-screen":
+        {
+            sendKey('keydown', 112); //F1
+            break;
+        }
+        case "level-random":
+        {
+            sendKey('keydown', 48);
+            break;
+        }
+        case "level-1-1":
+        {
+            sendKey('keydown', 49);
+            break;
+        }
+        case "level-1-2":
+        {
+            sendKey('keydown', 50);
+            break;
+        }
+        case "level-1-3":
+        {
+            sendKey('keydown', 51);
+            break;
+        }
+        case "level-1-4":
+        {
+            sendKey('keydown', 52);
+            break;
+        }
+        case "level-2-1":
+        {
+            sendKey('keydown', 53);
+            break;
+        }
+        case "level-2-2":
+        {
+            sendKey('keydown', 54);
+            break;
+        }
+        case "level-2-3":
+        {
+            sendKey('keydown', 55);
+            break;
+        }
+        case "level-2-4":
+        {
+            sendKey('keydown', 56);
+            break;
+        }
+        case "level-secret-9":
+        {
+            sendKey('keydown', 57);
+            break;
+        }
+    }
+});
+</script>
+
 <script>
 const container = document.getElementById('gameContainer');
 const canvas = document.getElementById('gameCanvas');
@@ -424,6 +555,20 @@ function bindTouch(btn, keyCode) {
     btn.addEventListener('mousedown', press);
     btn.addEventListener('mouseup', release);
     btn.addEventListener('mouseleave', release);
+
+    btn.parentElement.addEventListener("touchmove", (e) => {
+        e.preventDefault();
+        const isOverButton = Array.from(e.touches).some(touch => {
+            const target = document.elementFromPoint(touch.clientX, touch.clientY);
+            return target === btn;
+        });
+
+        if (isOverButton) {
+            press(e);
+        } else {
+            release(e);
+        }
+    });
 }
 
 bindTouch(
