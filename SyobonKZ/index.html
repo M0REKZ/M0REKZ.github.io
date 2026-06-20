@@ -395,8 +395,10 @@ document.addEventListener("fullscreenchange", () => {
   if (!document.fullscreenElement) {
     console.log("Exited fullscreen");
 
-    canvas.style.display = "none";
-    document.getElementById('touchControls').style.display = "none";
+    const touchcontrols = document.getElementById('touchControls');
+    if(touchcontrols.style.display != "none")
+        canvas.style.display = "none";
+    touchcontrols.style.display = "none";
     exitFullscreenAndUnlock();
   }
 });
