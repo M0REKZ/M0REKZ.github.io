@@ -115,21 +115,12 @@
             pointer-events: none;
         }
 
-        #leftSide {
-            display: grid;
-            grid-template-columns: 70px 70px 70px;
-            grid-template-rows: 70px 70px 70px;
-
-            gap: 10px;
-            pointer-events: auto;
-        }
-
+        #leftSide,
         #rightSide {
             display: grid;
-            grid-template-columns: 70px 70px 70px;
-            grid-template-rows: 70px 70px 70px;
-
-            gap: 10px;
+            grid-template-columns: repeat(3, 90px);
+            grid-template-rows: repeat(2, 90px);
+            gap: 1.5vmin;
             pointer-events: auto;
         }
 
@@ -143,7 +134,7 @@
             background: rgba(255, 255, 255, 0.5);
             color: white;
 
-            font-size: 28px;
+            font-size: 50px;
             font-weight: bold;
 
             touch-action: none;
@@ -201,12 +192,46 @@ const canvas = document.getElementById('gameCanvas');
 const fullTabBtn = document.getElementById('fullTabBtn');
 const hint = document.getElementById('fullTabHint');
 
-document.getElementById('fullscreenBtn').addEventListener('click', async () => {
+async function enterFullscreenAndRotate() {
+    const container = document.getElementById('gameContainer');
+
     try {
         if (!document.fullscreenElement) {
             await container.requestFullscreen();
-        } else {
+        }
+    } catch (e) {
+        console.log("Fullscreen failed:", e);
+    }
+
+    try {
+        if (screen.orientation && screen.orientation.lock) {
+            await screen.orientation.lock('landscape');
+        }
+    } catch (e) {
+        console.log("Orientation lock failed (not fatal):", e);
+    }
+}
+
+async function exitFullscreenAndUnlock() {
+    try {
+        if (document.fullscreenElement) {
             await document.exitFullscreen();
+        }
+
+        if (screen.orientation && screen.orientation.unlock) {
+            screen.orientation.unlock();
+        }
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+document.getElementById('fullscreenBtn').addEventListener('click', async () => {
+    try {
+        if (!document.fullscreenElement) {
+            await enterFullscreenAndRotate();
+        } else {
+            await exitFullscreenAndUnlock();
         }
     } catch (err) {
         console.error('Fullscreen error:', err);
