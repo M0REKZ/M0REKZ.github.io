@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <style>
         body {
             margin: 0;
             padding: 0;
-            overflow: auto;
+            overflow-x: hidden;
+
             background: rgb(164,179,245);
-            flex-direction: column;
+
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
         }
 
@@ -104,7 +106,7 @@
             left: 0;
             width: 100%;
 
-            display: flex;
+            display: none;
             justify-content: space-between;
             align-items: flex-end;
 
@@ -141,16 +143,61 @@
             user-select: none;
         }
 
+        .fullscreenButtonsDesktop {
+            display: block;
+        }
+
+        .playButtonMobile {
+            display: none;
+        }
+
+        .playButtonMobile button {
+            font-size: 10vw;
+            padding: 12px 30px;
+            border-radius: 999px;
+            color: rgb(242,156,56);
+            text-shadow:
+            -1px -1px 0 black,
+            0px -1px 0 black,
+            1px -1px 0 black,
+            -1px  0px 0 black,
+            0px  0px 0 black,
+            1px  0px 0 black,
+            -1px  1px 0 black,
+            0px  1px 0 black,
+            1px  1px 0 black;
+        }
+
         @media (pointer: coarse) {
+            #sourcecodelinkkz {
+                font-size: x-large;
+            }
+
+            #notsourcelink {
+                font-size: x-large;
+            }
+
+            #gameCanvas {
+                display: none;
+            }
+
             #touchControls {
-                display: flex;
+                display: none;
+            }
+
+            .fullscreenButtonsDesktop {
+                display: none;
+            }
+
+            .playButtonMobile {
+                display: block;
             }
         }
     </style>
 </head>
 <body>
 
-<img src="./logo.png"/>
+<img style="width: 100%; max-width: fit-content;" src="./logo.png"/>
 <div id="gameContainer">
     <canvas id="gameCanvas"></canvas>
     <div id="touchControls">
@@ -173,9 +220,12 @@
 </div>
 <div id="fullTabHint">Press Esc to exit Full Tab</div>
 <br>
-<div>
+<div class="fullscreenButtonsDesktop">
     <button id="fullscreenBtn">Fullscreen</button>
     <button id="fullTabBtn">Full Tab</button>
+</div>
+<div class="playButtonMobile">
+    <button id="playButtonMobileBtn" onclick="startGameMobile()">Play!</button>
 </div>
 <br>
 <a id="sourcecodelinkkz" href="https://github.com/M0REKZ/SyobonKZ" style="font-family:sans-serif;font-style:oblique;">——&#62; Source code &#60;——</a>
@@ -192,8 +242,24 @@ const canvas = document.getElementById('gameCanvas');
 const fullTabBtn = document.getElementById('fullTabBtn');
 const hint = document.getElementById('fullTabHint');
 
+function startGameMobile() {
+    canvas.style.display = "block";
+    document.getElementById('playButtonMobileBtn').innerText = "Return to game";
+    document.getElementById('touchControls').style.display = "flex";
+    enterFullscreenAndRotate();
+}
+
+document.addEventListener("fullscreenchange", () => {
+  if (!document.fullscreenElement) {
+    console.log("Exited fullscreen");
+
+    canvas.style.display = "none";
+    document.getElementById('touchControls').style.display = "none";
+    exitFullscreenAndUnlock();
+  }
+});
+
 async function enterFullscreenAndRotate() {
-    const container = document.getElementById('gameContainer');
 
     try {
         if (!document.fullscreenElement) {
