@@ -16,60 +16,20 @@
             align-items: center;
         }
 
-        #gameContainer {
-            width: 100%;
-            height: 100%;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            position: relative;
-        }
-
-        #gameContainer:fullscreen {
-            width: 100vw;
-            height: 100vh;
-            background: rgb(164,179,245);
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        #gameContainer:fullscreen #gameCanvas {
-            width: 100%;
-            height: 100%;
-            max-width: 100vw;
-            max-height: 100vh;
-            object-fit: contain;
-        }
-
-        #gameCanvas {
-            display: block;
-            border: none;
-        }
-
-        #fullscreenBtn {
-            margin-top: 10px;
-        }
-
-        #fullTabHint {
-            position: fixed;
-            top: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-
-            padding: 8px 16px;
-            border-radius: 6px;
-
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            font-family: sans-serif;
-            font-size: 14px;
-
-            display: none;
-            z-index: 10000;
+        p {
+            color: rgb(242,156,56);
+            text-shadow:
+            -1px -1px 0 black,
+            0px -1px 0 black,
+            1px -1px 0 black,
+            -1px  0px 0 black,
+            0px  0px 0 black,
+            1px  0px 0 black,
+            -1px  1px 0 black,
+            0px  1px 0 black,
+            1px  1px 0 black;
+            font-size: 2vw;
+            font-family:sans-serif;
         }
 
         #sourcecodelinkkz {
@@ -102,510 +62,52 @@
             font-size: 2vw;
         }
 
-        #touchControls {
-            position: fixed;
-            bottom: 20px;
-            left: 0;
-            width: 100%;
-
-            display: none;
-            justify-content: space-between;
-            align-items: flex-end;
-
-            padding: 0 20px;
-            box-sizing: border-box;
-
-            z-index: 10001;
-            pointer-events: none;
-        }
-
-        #leftSide,
-        #rightSide {
-            display: grid;
-            grid-template-columns: repeat(3, 90px);
-            grid-template-rows: repeat(2, 90px);
-            gap: 1.5vmin;
-            pointer-events: auto;
-        }
-
-        /*first row has 2 columns, for left/right buttons*/
-        #leftBtn {
-            transform: scaleX(1.5);
-            transform-origin: left;
-        }
-
-        #rightBtn {
-            transform: scaleX(1.5);
-            transform-origin: right;
-        }
-
-        #touchControls button {
-            width: 100%;
-            height: 100%;
-
-            border: none;
-            border-radius: 5%;
-
-            background: rgba(255, 255, 255, 0.5);
-            color: white;
-
-            font-size: 50px;
-            font-weight: bold;
-
-            touch-action: none;
-            user-select: none;
-        }
-
-        .fullscreenButtonsDesktop {
-            display: block;
-        }
-
-        .playButtonMobile {
-            display: none;
-        }
-
-        button {
-            font-size: 2vw;
-            padding: 12px 30px;
-            border-radius: 999px;
-            color: rgb(242,156,56);
-            text-shadow:
-            -1px -1px 0 black,
-            0px -1px 0 black,
-            1px -1px 0 black,
-            -1px  0px 0 black,
-            0px  0px 0 black,
-            1px  0px 0 black,
-            -1px  1px 0 black,
-            0px  1px 0 black,
-            1px  1px 0 black;
-        }
-
-        select {
-            font-size: 2vw;
-            padding: 12px 30px;
-            border-radius: 999px;
-            color: rgb(242,156,56);
-            text-shadow:
-            -1px -1px 0 black,
-            0px -1px 0 black,
-            1px -1px 0 black,
-            -1px  0px 0 black,
-            0px  0px 0 black,
-            1px  0px 0 black,
-            -1px  1px 0 black,
-            0px  1px 0 black,
-            1px  1px 0 black;
-
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-
-            padding-right: 45px; /* more space for bigger arrow */
-
-            background-image: url("data:image/svg+xml;charset=UTF-8, <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23f29c38' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
-
-            background-repeat: no-repeat;
-            background-position: right 12px center;
-            background-size: 8vh;
-        }
-
-        @media (pointer: coarse) {
-            #sourcecodelinkkz {
-                font-size: 7vw;
-            }
-
-            #notsourcelink {
-                font-size: 7vw;
-            }
-
-            #gameCanvas {
-                display: none;
-            }
-
-            #touchControls {
-                display: none;
-            }
-
-            .fullscreenButtonsDesktop {
-                display: none;
-            }
-
-            .playButtonMobile {
-                display: block;
-            }
-
-            button {
-                max-width: fit-content;
-                font-size: 10vw;
-            }
-
-            select {
-                max-width: 80vw;
-                font-size: 10vw;
-            }
+        .mainbg {
+            border-radius: 20px;
+            background-color: rgba(47, 47, 47, 0.321);
+            padding: 1.5vw;
         }
     </style>
 </head>
 <body>
+    <img style="width: 68%; max-width: fit-content;" src="./logo.png"/>
 
-<img style="width: 100%; max-width: fit-content;" src="./logo.png"/>
-<div id="gameContainer">
-    <canvas id="gameCanvas"></canvas>
-    <div id="touchControls">
-        <div id="leftSide">
-            <button id="leftBtn">◀</button>
-            <div></div>
-            <button id="rightBtn">▶</button>
+    <p class="mainbg">
+        Syobon<span style="color: rgb(114, 114, 114);">KZ</span> is my
+        own continuation of the OpenSyobonAction dead project, im trying
+        to fix bugs and improve things to match the original games (and also
+        fix some annoying things from the original games)
+        
+        
+        <br>
+        <br>
+        Some improved things are:
+        <br>• Windows, Linux, macOS, Android and Web Browser ports!
+        <br>• SDL3 support
+        <br>• Fullscreen
+        <br>• Fixed missing sprites
+        <br>• Fixing mismatches with the original Syobon Action 1 and 2!
+        <br>• Code being improved continuously!
+        <br>• Plans to support Syobon Action 3, 4 & 5 (if i have time)!
+        <br>• And others that i dont remember now :0!
 
-            <div></div>
-            <button id="downBtn">▼</button>
-            <div></div>
-        </div>
+        <br>
+        <br>
+        <a style="text-align: center; display: block;" href="https://github.com/M0REKZ/SyobonKZ/releases/latest/">
+            Click here to find the latest version!
+        </a>
+        <br>
+        <br>
+        <a style="text-align: center; display: block;" href="game.html">
+            ...or here to play in your Browser!
+        </a>
 
-        <div id="rightSide">
-            <div></div>
-            <div></div>
-            <button id="jumpBtn">▲</button>
-        </div>
-    </div>
-</div>
-<div id="fullTabHint">Press Esc to exit Full Tab</div>
-<br>
-<div class="fullscreenButtonsDesktop">
-    <button id="fullscreenBtn">Fullscreen</button>
-    <button id="fullTabBtn">Full Tab</button>
-</div>
-<div class="playButtonMobile">
-    <button id="playButtonMobileBtn" onclick="startGameMobile()">Play!</button>
-</div>
-<br>
-<select id="menuLevelSelect">
-  <option value="">Select level</option>
-  <option value="level-1-1">Syobon Action Level 1</option>
-  <option value="level-1-2">Syobon Action Level 2</option>
-  <option value="level-1-3">Syobon Action Level 3</option>
-  <option value="level-1-4">Syobon Action Level 4</option>
-  <option value="level-2-1">Syobon Action 2 Level 1</option>
-  <option value="level-2-2">Syobon Action 2 Level 2</option>
-  <option value="level-2-3">Syobon Action 2 Level 3</option>
-  <option value="level-2-4">Syobon Action 2 Level 4</option>
-  <option value="level-secret-9">Syobon Action 2 "Hidden Level 9"</option>
-  <option value="level-random">Syobon Action "Random Mode"</option>
-  <option value="title-screen">Go to title screen</option>
-</select>
-<br>
-<br><br>
-<a id="sourcecodelinkkz" href="https://github.com/M0REKZ/SyobonKZ" style="font-family:sans-serif;font-style:oblique;">——&#62; Source code &#60;——</a>
+    </p>
 
-<br><br>
+    <a id="sourcecodelinkkz" href="https://github.com/M0REKZ/SyobonKZ" style="font-family:sans-serif;font-style:oblique;">——&#62; Source code &#60;——</a>
 
-<a id="notsourcelink" href="https://m0rekz.github.io" style="font-family:sans-serif;font-style:oblique;">——&#62; +KZ Home page &#60;——</a>
+    <br>
 
-<!--evil br spam to be able to scroll more-->
-<br><br><br><br><br><br>
-
-<script>
-document.getElementById("menuLevelSelect").addEventListener("change", function () {
-  const value = this.value;
-
-    //clear the number keys each change
-    for (let index = 48; index <= 57; index++) {
-        sendKey('keyup', index);
-    }
-
-    //clear F1
-    sendKey('keyup', 112);
-
-    switch(value)
-    {
-        case "title-screen":
-        {
-            sendKey('keydown', 112); //F1
-            break;
-        }
-        case "level-random":
-        {
-            sendKey('keydown', 48);
-            break;
-        }
-        case "level-1-1":
-        {
-            sendKey('keydown', 49);
-            break;
-        }
-        case "level-1-2":
-        {
-            sendKey('keydown', 50);
-            break;
-        }
-        case "level-1-3":
-        {
-            sendKey('keydown', 51);
-            break;
-        }
-        case "level-1-4":
-        {
-            sendKey('keydown', 52);
-            break;
-        }
-        case "level-2-1":
-        {
-            sendKey('keydown', 53);
-            break;
-        }
-        case "level-2-2":
-        {
-            sendKey('keydown', 54);
-            break;
-        }
-        case "level-2-3":
-        {
-            sendKey('keydown', 55);
-            break;
-        }
-        case "level-2-4":
-        {
-            sendKey('keydown', 56);
-            break;
-        }
-        case "level-secret-9":
-        {
-            sendKey('keydown', 57);
-            break;
-        }
-    }
-});
-</script>
-
-<script>
-const container = document.getElementById('gameContainer');
-const canvas = document.getElementById('gameCanvas');
-const fullTabBtn = document.getElementById('fullTabBtn');
-const hint = document.getElementById('fullTabHint');
-
-function startGameMobile() {
-    canvas.style.display = "block";
-    document.getElementById('playButtonMobileBtn').innerText = "Return to game";
-    document.getElementById('touchControls').style.display = "flex";
-    enterFullscreenAndRotate();
-}
-
-document.addEventListener("fullscreenchange", () => {
-  if (!document.fullscreenElement) {
-    console.log("Exited fullscreen");
-
-    const touchcontrols = document.getElementById('touchControls');
-    if(document.getElementById('playButtonMobileBtn').style.display == "block")
-        canvas.style.display = "none";
-    touchcontrols.style.display = "none";
-    exitFullscreenAndUnlock();
-  }
-});
-
-async function enterFullscreenAndRotate() {
-
-    try {
-        if (!document.fullscreenElement) {
-            await container.requestFullscreen();
-        }
-    } catch (e) {
-        console.log("Fullscreen failed:", e);
-    }
-
-    try {
-        if (screen.orientation && screen.orientation.lock) {
-            await screen.orientation.lock('landscape');
-        }
-    } catch (e) {
-        console.log("Orientation lock failed (not fatal):", e);
-    }
-}
-
-async function exitFullscreenAndUnlock() {
-    try {
-        if (document.fullscreenElement) {
-            await document.exitFullscreen();
-        }
-
-        if (screen.orientation && screen.orientation.unlock) {
-            screen.orientation.unlock();
-        }
-    } catch (err) {
-        console.log(err);
-    }
-}
-
-document.getElementById('fullscreenBtn').addEventListener('click', async () => {
-    try {
-        if (!document.fullscreenElement) {
-            await enterFullscreenAndRotate();
-        } else {
-            await exitFullscreenAndUnlock();
-        }
-    } catch (err) {
-        console.error('Fullscreen error:', err);
-    }
-});
-
-let fullTab = false;
-hint.style.display = 'none';
-
-function enterFullTab() {
-    fullTab = true;
-
-    canvas.style.position = 'fixed';
-    canvas.style.top = '0';
-    canvas.style.left = '0';
-    canvas.style.width = '100vw';
-    canvas.style.aspectRatio = '480/420';
-    canvas.style.objectFit = 'contain';
-    canvas.style.height = '100vh';
-    canvas.style.zIndex = '9999';
-
-    hint.style.display = 'block';
-
-    fullTabBtn.textContent = 'Exit Full Tab';
-
-    hint.style.display = 'block';
-    setTimeout(() => {
-        if (fullTab) {
-            hint.style.display = 'none';
-        }
-    }, 3000);
-}
-
-function exitFullTab() {
-    fullTab = false;
-
-    canvas.style.position = '';
-    canvas.style.top = '';
-    canvas.style.left = '';
-    canvas.style.width = '';
-    canvas.style.height = '';
-    canvas.style.zIndex = '';
-
-    hint.style.display = 'none';
-
-    fullTabBtn.textContent = 'Full Tab';
-}
-
-fullTabBtn.addEventListener('click', () => {
-    if (fullTab) {
-        exitFullTab();
-    } else {
-        enterFullTab();
-    }
-});
-
-document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && fullTab) {
-        exitFullTab();
-    }
-});
-
-window.Module = {
-    canvas,
-
-    locateFile(path) {
-        return path;
-    },
-
-    print(text) {
-        console.log(text);
-    },
-
-    printErr(text) {
-        console.error(text);
-    }
-};
-
-
-function sendKey(type, keyCode) {
-    canvas.focus();
-
-    const event = document.createEvent("KeyboardEvent");
-
-    event.initKeyboardEvent(
-        type,
-        true,
-        true,
-        window,
-        "",              // key
-        0,
-        "",              // location
-        false,
-        false,
-        false,
-        false
-    );
-
-    Object.defineProperty(event, "keyCode", { value: keyCode });
-    Object.defineProperty(event, "which", { value: keyCode });
-
-    console.log(type + " " + keyCode);
-    canvas.dispatchEvent(event);
-}
-
-function bindTouch(btn, keyCode) {
-
-    function press(e) {
-        e.preventDefault();
-        sendKey('keydown', keyCode);
-    }
-
-    function release(e) {
-        e.preventDefault();
-        sendKey('keyup', keyCode);
-    }
-
-    // Mobile
-    btn.addEventListener('touchstart', press);
-    btn.addEventListener('touchend', release);
-    btn.addEventListener('touchcancel', release);
-
-    // Desktop, for testing
-    btn.addEventListener('mousedown', press);
-    btn.addEventListener('mouseup', release);
-    btn.addEventListener('mouseleave', release);
-
-    btn.parentElement.addEventListener("touchmove", (e) => {
-        e.preventDefault();
-        const isOverButton = Array.from(e.touches).some(touch => {
-            const target = document.elementFromPoint(touch.clientX, touch.clientY);
-            return target === btn;
-        });
-
-        if (isOverButton) {
-            press(e);
-        } else {
-            release(e);
-        }
-    });
-}
-
-bindTouch(
-    document.getElementById('leftBtn'),
-    37 //Left key
-);
-
-bindTouch(
-    document.getElementById('rightBtn'),
-    39 //Right key
-);
-
-bindTouch(
-    document.getElementById('downBtn'),
-    40 //Down key
-);
-
-bindTouch(
-    document.getElementById('jumpBtn'),
-    90 //Z key
-);
-</script>
-
-<script src="./SyobonAction.js"></script>
-
+    <a id="notsourcelink" href="https://m0rekz.github.io" style="font-family:sans-serif;font-style:oblique;">——&#62; +KZ Home page &#60;——</a>
 </body>
 </html>
