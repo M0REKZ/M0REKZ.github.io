@@ -1,42 +1,48 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: 'en' }}">
 
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {%- seo -%}
     <link id="main-stylesheet" rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
     {%- feed_meta -%}
-    
+
 
 
     <link rel="stylesheet" href="/SyobonKZ/wiki/main.css">
-    
+
 </head>
 
-  <body>
+<body>
 
-    {%- include header.html -%}
+    <header class="wiki-text syobonkz-title">
+        <a href="/SyobonKZ/wiki/" style="color: inherit; text-decoration: inherit;">
+            Syobon<span style="color: rgb(114, 114, 114);">KZ</span>
+            <span style="color: rgb(255, 255, 255);">Wiki</span>
+        </a>
+    </header>
+    <hr style="color: black; height: 2px;align-self: start; width: 100vw; background-color: black; border: none;">
 
     <main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        <!-- class="post" -->
-        <article>
+        <div class="wrapper">
+            <!-- class="post" -->
+            <article>
 
-            <!-- class="post-content" -->
-            <div>
-                {{ content }}
-            </div>
+                <!-- class="post-content" -->
+                <div>
+                    {{ content }}
+                </div>
 
-        </article>
-      </div>
+            </article>
+        </div>
     </main>
 
     {%- include footer.html -%}
 
     {%- include sub-footer.html -%}
 
-  </body>
+</body>
 
 </html>
