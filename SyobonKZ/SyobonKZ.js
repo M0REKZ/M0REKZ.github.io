@@ -71,7 +71,7 @@ var ENVIRONMENT_IS_SHELL = !ENVIRONMENT_IS_WEB && !ENVIRONMENT_IS_NODE && !ENVIR
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: /var/folders/dm/cwds72jn0kvd_bmcsvqsk4nh0000gp/T/tmpsnvxcbx7.js
+// include: /var/folders/dm/cwds72jn0kvd_bmcsvqsk4nh0000gp/T/tmp03gsw7ug.js
 
   if (!Module['expectedDataFileDownloads']) Module['expectedDataFileDownloads'] = 0;
   Module['expectedDataFileDownloads']++;
@@ -90,8 +90,8 @@ var ENVIRONMENT_IS_SHELL = !ENVIRONMENT_IS_WEB && !ENVIRONMENT_IS_NODE && !ENVIR
         // web worker
         PACKAGE_PATH = encodeURIComponent(location.pathname.substring(0, location.pathname.lastIndexOf('/')) + '/');
       }
-      var PACKAGE_NAME = 'SyobonAction.data';
-      var REMOTE_PACKAGE_BASE = 'SyobonAction.data';
+      var PACKAGE_NAME = 'SyobonKZ.data';
+      var REMOTE_PACKAGE_BASE = 'SyobonKZ.data';
       var REMOTE_PACKAGE_NAME = Module['locateFile'] ? Module['locateFile'](REMOTE_PACKAGE_BASE, '') : REMOTE_PACKAGE_BASE;
       var REMOTE_PACKAGE_SIZE = metadata['remote_package_size'];
 
@@ -161,13 +161,14 @@ var ENVIRONMENT_IS_SHELL = !ENVIRONMENT_IS_WEB && !ENVIRONMENT_IS_NODE && !ENVIR
       }
 Module['FS_createPath']("/", "BGM", true, true);
 Module['FS_createPath']("/", "SE", true, true);
+Module['FS_createPath']("/SE", "sa3", true, true);
 Module['FS_createPath']("/", "res", true, true);
+Module['FS_createPath']("/res", "jam", true, true);
+Module['FS_createPath']("/res", "kaizosyobon", true, true);
+Module['FS_createPath']("/res", "kz", true, true);
+Module['FS_createPath']("/res", "sa3", true, true);
 Module['FS_createPath']("/", "text", true, true);
-
-    for (var file of metadata['files']) {
-      var name = file['filename']
-      Module['addRunDependency'](`fp ${name}`);
-    }
+Module['FS_createPath']("/text", "kaizosyobon", true, true);
 
       async function processPackageData(arrayBuffer) {
         assert(arrayBuffer, 'Loading data file failed.');
@@ -182,15 +183,14 @@ Module['FS_createPath']("/", "text", true, true);
         try {
           // canOwn this data in the filesystem, it is a slice into the heap that will never change
           await Module['FS_preloadFile'](name, null, data, true, true, false, true);
-          Module['removeRunDependency'](`fp ${name}`);
         } catch (e) {
           err(`Preloading file ${name} failed`, e);
         }
 
           }
-          Module['removeRunDependency']('datafile_SyobonAction.data');
+          Module['removeRunDependency']('datafile_SyobonKZ.data');
       }
-      Module['addRunDependency']('datafile_SyobonAction.data');
+      Module['addRunDependency']('datafile_SyobonKZ.data');
 
       if (!Module['preloadResults']) Module['preloadResults'] = {};
 
@@ -198,10 +198,11 @@ Module['FS_createPath']("/", "text", true, true);
       if (!fetched) {
         fetched = await fetchPromise;
       }
-      processPackageData(fetched);
+      await processPackageData(fetched);
 
     }
-    if (Module['calledRun']) {
+    // Detect whether the module JS file has already been loaded.
+    if (Module['FS_createPath']) {
       runWithFS(Module);
     } else {
       if (!Module['preRun']) Module['preRun'] = [];
@@ -209,28 +210,28 @@ Module['FS_createPath']("/", "text", true, true);
     }
 
     }
-    loadPackage({"files": [{"filename": "/BGM/castle.ogg", "start": 0, "end": 264273}, {"filename": "/BGM/dungeon.ogg", "start": 264273, "end": 786303}, {"filename": "/BGM/field.ogg", "start": 786303, "end": 1241028}, {"filename": "/BGM/field3.mp3", "start": 1241028, "end": 2810881}, {"filename": "/BGM/puyo.ogg", "start": 2810881, "end": 3023725}, {"filename": "/BGM/readme.txt", "start": 3023725, "end": 3025685}, {"filename": "/BGM/readme_ja.txt", "start": 3025685, "end": 3027217}, {"filename": "/BGM/star4.ogg", "start": 3027217, "end": 3045195}, {"filename": "/SE/4-clear.ogg", "start": 3045195, "end": 3073799}, {"filename": "/SE/Pswitch.ogg", "start": 3073799, "end": 3080286}, {"filename": "/SE/allclear.ogg", "start": 3080286, "end": 3109581}, {"filename": "/SE/brockbreak.ogg", "start": 3109581, "end": 3116381}, {"filename": "/SE/brockcoin.ogg", "start": 3116381, "end": 3123427}, {"filename": "/SE/brockkinoko.ogg", "start": 3123427, "end": 3130615}, {"filename": "/SE/coin.ogg", "start": 3130615, "end": 3137273}, {"filename": "/SE/death.ogg", "start": 3137273, "end": 3157653}, {"filename": "/SE/dokan.ogg", "start": 3157653, "end": 3165247}, {"filename": "/SE/gameover.ogg", "start": 3165247, "end": 3186099}, {"filename": "/SE/goal.ogg", "start": 3186099, "end": 3215447}, {"filename": "/SE/hintBlock.ogg", "start": 3215447, "end": 3223811}, {"filename": "/SE/humi.ogg", "start": 3223811, "end": 3229049}, {"filename": "/SE/jump.ogg", "start": 3229049, "end": 3235366}, {"filename": "/SE/jumpBlock.ogg", "start": 3235366, "end": 3240109}, {"filename": "/SE/kirra.ogg", "start": 3240109, "end": 3246131}, {"filename": "/SE/koura.ogg", "start": 3246131, "end": 3251231}, {"filename": "/SE/powerup.ogg", "start": 3251231, "end": 3259371}, {"filename": "/SE/tekifire.ogg", "start": 3259371, "end": 3267879}, {"filename": "/res/.DS_Store", "start": 3267879, "end": 3274027}, {"filename": "/res/brock.png", "start": 3274027, "end": 3276851}, {"filename": "/res/brock2.png", "start": 3276851, "end": 3279270}, {"filename": "/res/decoration_kz.png", "start": 3279270, "end": 3280284}, {"filename": "/res/haikei.png", "start": 3280284, "end": 3284390}, {"filename": "/res/item.png", "start": 3284390, "end": 3287615}, {"filename": "/res/omake.png", "start": 3287615, "end": 3291929}, {"filename": "/res/omake2.png", "start": 3291929, "end": 3295941}, {"filename": "/res/player.png", "start": 3295941, "end": 3297092}, {"filename": "/res/sazanami", "start": 3297092, "end": 3304466}, {"filename": "/res/sazanami-gothic.ttf", "start": 3304466, "end": 10994790}, {"filename": "/res/syobon3.png", "start": 10994790, "end": 11010235}, {"filename": "/res/teki.png", "start": 11010235, "end": 11012751}, {"filename": "/text/.DS_Store", "start": 11012751, "end": 11018899}, {"filename": "/text/beyondimagination.bmp", "start": 11018899, "end": 11036813}, {"filename": "/text/combatpowerofone.bmp", "start": 11036813, "end": 11053319}, {"filename": "/text/differenceinperfomance.bmp", "start": 11053319, "end": 11063489}, {"filename": "/text/enemy_0.bmp", "start": 11063489, "end": 11070843}, {"filename": "/text/enemy_1.bmp", "start": 11070843, "end": 11084533}, {"filename": "/text/enemy_10.bmp", "start": 11084533, "end": 11101743}, {"filename": "/text/enemy_11.bmp", "start": 11101743, "end": 11114729}, {"filename": "/text/enemy_12.bmp", "start": 11114729, "end": 11137571}, {"filename": "/text/enemy_13.bmp", "start": 11137571, "end": 11144925}, {"filename": "/text/enemy_14.bmp", "start": 11144925, "end": 11157911}, {"filename": "/text/enemy_15.bmp", "start": 11157911, "end": 11163857}, {"filename": "/text/enemy_16.bmp", "start": 11163857, "end": 11166283}, {"filename": "/text/enemy_17.bmp", "start": 11166283, "end": 11182085}, {"filename": "/text/enemy_18.bmp", "start": 11182085, "end": 11186623}, {"filename": "/text/enemy_19.bmp", "start": 11186623, "end": 11196793}, {"filename": "/text/enemy_2.bmp", "start": 11196793, "end": 11202739}, {"filename": "/text/enemy_20.bmp", "start": 11202739, "end": 11215725}, {"filename": "/text/enemy_21.bmp", "start": 11215725, "end": 11223079}, {"filename": "/text/enemy_22.bmp", "start": 11223079, "end": 11240993}, {"filename": "/text/enemy_23.bmp", "start": 11240993, "end": 11257499}, {"filename": "/text/enemy_24.bmp", "start": 11257499, "end": 11263445}, {"filename": "/text/enemy_25.bmp", "start": 11263445, "end": 11280655}, {"filename": "/text/enemy_26.bmp", "start": 11280655, "end": 11288009}, {"filename": "/text/enemy_27.bmp", "start": 11288009, "end": 11305219}, {"filename": "/text/enemy_28.bmp", "start": 11305219, "end": 11316797}, {"filename": "/text/enemy_29.bmp", "start": 11316797, "end": 11331191}, {"filename": "/text/enemy_3.bmp", "start": 11331191, "end": 11338545}, {"filename": "/text/enemy_30.bmp", "start": 11338545, "end": 11345899}, {"filename": "/text/enemy_4.bmp", "start": 11345899, "end": 11353253}, {"filename": "/text/enemy_5.bmp", "start": 11353253, "end": 11360607}, {"filename": "/text/enemy_6.bmp", "start": 11360607, "end": 11370777}, {"filename": "/text/enemy_7.bmp", "start": 11370777, "end": 11384467}, {"filename": "/text/enemy_8.bmp", "start": 11384467, "end": 11386189}, {"filename": "/text/enemy_9.bmp", "start": 11386189, "end": 11400583}, {"filename": "/text/great.bmp", "start": 11400583, "end": 11410753}, {"filename": "/text/hahahaha.bmp", "start": 11410753, "end": 11420923}, {"filename": "/text/hetare.bmp", "start": 11420923, "end": 11428277}, {"filename": "/text/illpurge.bmp", "start": 11428277, "end": 11438447}, {"filename": "/text/imsorryimstrong.bmp", "start": 11438447, "end": 11454953}, {"filename": "/text/itstoolate.bmp", "start": 11454953, "end": 11466531}, {"filename": "/text/main_0.bmp", "start": 11466531, "end": 11499309}, {"filename": "/text/main_1.bmp", "start": 11499309, "end": 11520567}, {"filename": "/text/main_10.bmp", "start": 11520567, "end": 11554305}, {"filename": "/text/main_11.bmp", "start": 11554305, "end": 11588043}, {"filename": "/text/main_12.bmp", "start": 11588043, "end": 11621781}, {"filename": "/text/main_13.bmp", "start": 11621781, "end": 11640159}, {"filename": "/text/main_14.bmp", "start": 11640159, "end": 11671977}, {"filename": "/text/main_15.bmp", "start": 11671977, "end": 11700915}, {"filename": "/text/main_16.bmp", "start": 11700915, "end": 11732733}, {"filename": "/text/main_17.bmp", "start": 11732733, "end": 11736711}, {"filename": "/text/main_18.bmp", "start": 11736711, "end": 11770449}, {"filename": "/text/main_19.bmp", "start": 11770449, "end": 11802267}, {"filename": "/text/main_2.bmp", "start": 11802267, "end": 11827365}, {"filename": "/text/main_20.bmp", "start": 11827365, "end": 11851503}, {"filename": "/text/main_21.bmp", "start": 11851503, "end": 11874681}, {"filename": "/text/main_22.bmp", "start": 11874681, "end": 11907459}, {"filename": "/text/main_23.bmp", "start": 11907459, "end": 11924877}, {"filename": "/text/main_24.bmp", "start": 11924877, "end": 11958615}, {"filename": "/text/main_25.bmp", "start": 11958615, "end": 11978913}, {"filename": "/text/main_26.bmp", "start": 11978913, "end": 12002091}, {"filename": "/text/main_27.bmp", "start": 12002091, "end": 12032949}, {"filename": "/text/main_28.bmp", "start": 12032949, "end": 12050367}, {"filename": "/text/main_29.bmp", "start": 12050367, "end": 12081225}, {"filename": "/text/main_3.bmp", "start": 12081225, "end": 12095763}, {"filename": "/text/main_30.bmp", "start": 12095763, "end": 12111261}, {"filename": "/text/main_31.bmp", "start": 12111261, "end": 12117159}, {"filename": "/text/main_32.bmp", "start": 12117159, "end": 12126897}, {"filename": "/text/main_33.bmp", "start": 12126897, "end": 12141435}, {"filename": "/text/main_34.bmp", "start": 12141435, "end": 12153093}, {"filename": "/text/main_35.bmp", "start": 12153093, "end": 12164751}, {"filename": "/text/main_36.bmp", "start": 12164751, "end": 12176409}, {"filename": "/text/main_37.bmp", "start": 12176409, "end": 12204387}, {"filename": "/text/main_38.bmp", "start": 12204387, "end": 12221805}, {"filename": "/text/main_39.bmp", "start": 12221805, "end": 12251703}, {"filename": "/text/main_4.bmp", "start": 12251703, "end": 12284481}, {"filename": "/text/main_40.bmp", "start": 12284481, "end": 12301899}, {"filename": "/text/main_41.bmp", "start": 12301899, "end": 12307797}, {"filename": "/text/main_42.bmp", "start": 12307797, "end": 12319455}, {"filename": "/text/main_43.bmp", "start": 12319455, "end": 12331113}, {"filename": "/text/main_44.bmp", "start": 12331113, "end": 12337011}, {"filename": "/text/main_45.bmp", "start": 12337011, "end": 12354429}, {"filename": "/text/main_46.bmp", "start": 12354429, "end": 12379527}, {"filename": "/text/main_47.bmp", "start": 12379527, "end": 12413265}, {"filename": "/text/main_48.bmp", "start": 12413265, "end": 12419163}, {"filename": "/text/main_49.bmp", "start": 12419163, "end": 12452901}, {"filename": "/text/main_5.bmp", "start": 12452901, "end": 12486639}, {"filename": "/text/main_50.bmp", "start": 12486639, "end": 12487737}, {"filename": "/text/main_51.bmp", "start": 12487737, "end": 12530115}, {"filename": "/text/main_6.bmp", "start": 12530115, "end": 12563853}, {"filename": "/text/main_7.bmp", "start": 12563853, "end": 12597591}, {"filename": "/text/main_8.bmp", "start": 12597591, "end": 12628449}, {"filename": "/text/main_9.bmp", "start": 12628449, "end": 12653547}, {"filename": "/text/morebadkids.bmp", "start": 12653547, "end": 12670757}, {"filename": "/text/player_0.bmp", "start": 12670757, "end": 12683039}, {"filename": "/text/player_1.bmp", "start": 12683039, "end": 12691801}, {"filename": "/text/player_10.bmp", "start": 12691801, "end": 12701971}, {"filename": "/text/player_2.bmp", "start": 12701971, "end": 12710733}, {"filename": "/text/player_3.bmp", "start": 12710733, "end": 12725127}, {"filename": "/text/player_4.bmp", "start": 12725127, "end": 12738113}, {"filename": "/text/player_5.bmp", "start": 12738113, "end": 12748283}, {"filename": "/text/player_6.bmp", "start": 12748283, "end": 12759861}, {"filename": "/text/player_7.bmp", "start": 12759861, "end": 12777071}, {"filename": "/text/player_8.bmp", "start": 12777071, "end": 12784425}, {"filename": "/text/player_9.bmp", "start": 12784425, "end": 12794595}, {"filename": "/text/poocouscous.bmp", "start": 12794595, "end": 12804061}, {"filename": "/text/stillasoldier.bmp", "start": 12804061, "end": 12819159}, {"filename": "/text/suretokill.bmp", "start": 12819159, "end": 12829329}, {"filename": "/text/thatsalie.bmp", "start": 12829329, "end": 12833867}, {"filename": "/text/uselessuseless.bmp", "start": 12833867, "end": 12848261}], "remote_package_size": 12848261});
+    loadPackage({"files": [{"filename": "/BGM/castle.ogg", "start": 0, "end": 264273}, {"filename": "/BGM/dungeon.ogg", "start": 264273, "end": 786303}, {"filename": "/BGM/field.ogg", "start": 786303, "end": 1407055}, {"filename": "/BGM/field3.mp3", "start": 1407055, "end": 2976908}, {"filename": "/BGM/puyo.ogg", "start": 2976908, "end": 3189752}, {"filename": "/BGM/readme.txt", "start": 3189752, "end": 3191712}, {"filename": "/BGM/readme_ja.txt", "start": 3191712, "end": 3193244}, {"filename": "/BGM/star4.ogg", "start": 3193244, "end": 3211222}, {"filename": "/SE/.DS_Store", "start": 3211222, "end": 3221466}, {"filename": "/SE/4-clear.ogg", "start": 3221466, "end": 3250070}, {"filename": "/SE/Pswitch.ogg", "start": 3250070, "end": 3256557}, {"filename": "/SE/allclear.ogg", "start": 3256557, "end": 3285852}, {"filename": "/SE/brockbreak.ogg", "start": 3285852, "end": 3292652}, {"filename": "/SE/brockcoin.ogg", "start": 3292652, "end": 3299698}, {"filename": "/SE/brockkinoko.ogg", "start": 3299698, "end": 3306886}, {"filename": "/SE/coin.ogg", "start": 3306886, "end": 3313544}, {"filename": "/SE/death.ogg", "start": 3313544, "end": 3333924}, {"filename": "/SE/dokan.ogg", "start": 3333924, "end": 3341518}, {"filename": "/SE/gameover.ogg", "start": 3341518, "end": 3362370}, {"filename": "/SE/goal.ogg", "start": 3362370, "end": 3391718}, {"filename": "/SE/hintBlock.ogg", "start": 3391718, "end": 3400082}, {"filename": "/SE/humi.ogg", "start": 3400082, "end": 3405320}, {"filename": "/SE/jump.ogg", "start": 3405320, "end": 3411637}, {"filename": "/SE/jumpBlock.ogg", "start": 3411637, "end": 3416380}, {"filename": "/SE/kirra.ogg", "start": 3416380, "end": 3422402}, {"filename": "/SE/koura.ogg", "start": 3422402, "end": 3427502}, {"filename": "/SE/powerup.ogg", "start": 3427502, "end": 3435642}, {"filename": "/SE/sa3/so_1up.wav", "start": 3435642, "end": 3505642}, {"filename": "/SE/sa3/so_piranhaeat.wav", "start": 3505642, "end": 3598336}, {"filename": "/SE/tekifire.ogg", "start": 3598336, "end": 3606844}, {"filename": "/res/.DS_Store", "start": 3606844, "end": 3623232}, {"filename": "/res/RasterForge-License.txt", "start": 3623232, "end": 3630401}, {"filename": "/res/RasterForge.ttf", "start": 3630401, "end": 3657337}, {"filename": "/res/brock.png", "start": 3657337, "end": 3660161}, {"filename": "/res/brock2.png", "start": 3660161, "end": 3662580}, {"filename": "/res/haikei.png", "start": 3662580, "end": 3666686}, {"filename": "/res/item.png", "start": 3666686, "end": 3669911}, {"filename": "/res/jam/.DS_Store", "start": 3669911, "end": 3676059}, {"filename": "/res/jam/logojam.png", "start": 3676059, "end": 3676602}, {"filename": "/res/kaizosyobon/syobon3.png", "start": 3676602, "end": 3680517}, {"filename": "/res/kz/.DS_Store", "start": 3680517, "end": 3686665}, {"filename": "/res/kz/arrow.png", "start": 3686665, "end": 3690152}, {"filename": "/res/kz/decoration_kz.png", "start": 3690152, "end": 3691166}, {"filename": "/res/kz/levelicons.png", "start": 3691166, "end": 3691521}, {"filename": "/res/kz/logo.png", "start": 3691521, "end": 3709823}, {"filename": "/res/omake.png", "start": 3709823, "end": 3714137}, {"filename": "/res/omake2.png", "start": 3714137, "end": 3718149}, {"filename": "/res/player.png", "start": 3718149, "end": 3719300}, {"filename": "/res/sa3/big_stone_ball_1.png", "start": 3719300, "end": 3719922}, {"filename": "/res/sa3/big_stone_ball_2.png", "start": 3719922, "end": 3721845}, {"filename": "/res/sa3/big_stone_ball_3.png", "start": 3721845, "end": 3723797}, {"filename": "/res/sa3/big_stone_ball_4.png", "start": 3723797, "end": 3724426}, {"filename": "/res/sa3/big_stone_ball_5.png", "start": 3724426, "end": 3726369}, {"filename": "/res/sa3/big_stone_ball_6.png", "start": 3726369, "end": 3728312}, {"filename": "/res/sa3/brick_brittle.png", "start": 3728312, "end": 3728567}, {"filename": "/res/sa3/brick_water.png", "start": 3728567, "end": 3728692}, {"filename": "/res/sa3/flying_shell_jien_1.png", "start": 3728692, "end": 3729090}, {"filename": "/res/sa3/flying_shell_jien_2.png", "start": 3729090, "end": 3729758}, {"filename": "/res/sa3/ground_bottom_water.png", "start": 3729758, "end": 3729890}, {"filename": "/res/sa3/ground_top_water.png", "start": 3729890, "end": 3730046}, {"filename": "/res/sa3/hard_block_water.png", "start": 3730046, "end": 3730228}, {"filename": "/res/sa3/item_block_open_water.png", "start": 3730228, "end": 3730350}, {"filename": "/res/sa3/jumpscare_plant_1.png", "start": 3730350, "end": 3730622}, {"filename": "/res/sa3/jumpscare_plant_2.png", "start": 3730622, "end": 3730888}, {"filename": "/res/sa3/plant_water.png", "start": 3730888, "end": 3731191}, {"filename": "/res/sa3/shark.png", "start": 3731191, "end": 3731469}, {"filename": "/res/sa3/spike.png", "start": 3731469, "end": 3732383}, {"filename": "/res/sa3/spike_down.png", "start": 3732383, "end": 3732561}, {"filename": "/res/sa3/squid_1.png", "start": 3732561, "end": 3732777}, {"filename": "/res/sa3/squid_2.png", "start": 3732777, "end": 3732992}, {"filename": "/res/sa3/syobon_swim_1.png", "start": 3732992, "end": 3733265}, {"filename": "/res/sa3/syobon_swim_2.png", "start": 3733265, "end": 3733521}, {"filename": "/res/sa3/title.png", "start": 3733521, "end": 3744129}, {"filename": "/res/sa3/underwater_jien.png", "start": 3744129, "end": 3744339}, {"filename": "/res/sa3/water_top.png", "start": 3744339, "end": 3744649}, {"filename": "/res/sazanami-License.txt", "start": 3744649, "end": 3752023}, {"filename": "/res/sazanami-gothic.ttf", "start": 3752023, "end": 11442347}, {"filename": "/res/syobon3.png", "start": 11442347, "end": 11457792}, {"filename": "/res/teki.png", "start": 11457792, "end": 11460308}, {"filename": "/text/.DS_Store", "start": 11460308, "end": 11470552}, {"filename": "/text/beyondimagination.bmp", "start": 11470552, "end": 11488466}, {"filename": "/text/combatpowerofone.bmp", "start": 11488466, "end": 11504972}, {"filename": "/text/differenceinperfomance.bmp", "start": 11504972, "end": 11515142}, {"filename": "/text/enemy_0.bmp", "start": 11515142, "end": 11522496}, {"filename": "/text/enemy_1.bmp", "start": 11522496, "end": 11536186}, {"filename": "/text/enemy_10.bmp", "start": 11536186, "end": 11553396}, {"filename": "/text/enemy_11.bmp", "start": 11553396, "end": 11566382}, {"filename": "/text/enemy_12.bmp", "start": 11566382, "end": 11589224}, {"filename": "/text/enemy_13.bmp", "start": 11589224, "end": 11596578}, {"filename": "/text/enemy_14.bmp", "start": 11596578, "end": 11609564}, {"filename": "/text/enemy_15.bmp", "start": 11609564, "end": 11615510}, {"filename": "/text/enemy_16.bmp", "start": 11615510, "end": 11617936}, {"filename": "/text/enemy_17.bmp", "start": 11617936, "end": 11633738}, {"filename": "/text/enemy_18.bmp", "start": 11633738, "end": 11638276}, {"filename": "/text/enemy_19.bmp", "start": 11638276, "end": 11648446}, {"filename": "/text/enemy_2.bmp", "start": 11648446, "end": 11654392}, {"filename": "/text/enemy_20.bmp", "start": 11654392, "end": 11667378}, {"filename": "/text/enemy_21.bmp", "start": 11667378, "end": 11674732}, {"filename": "/text/enemy_22.bmp", "start": 11674732, "end": 11692646}, {"filename": "/text/enemy_23.bmp", "start": 11692646, "end": 11709152}, {"filename": "/text/enemy_24.bmp", "start": 11709152, "end": 11715098}, {"filename": "/text/enemy_25.bmp", "start": 11715098, "end": 11732308}, {"filename": "/text/enemy_26.bmp", "start": 11732308, "end": 11739662}, {"filename": "/text/enemy_27.bmp", "start": 11739662, "end": 11756872}, {"filename": "/text/enemy_28.bmp", "start": 11756872, "end": 11768450}, {"filename": "/text/enemy_29.bmp", "start": 11768450, "end": 11782844}, {"filename": "/text/enemy_3.bmp", "start": 11782844, "end": 11790198}, {"filename": "/text/enemy_30.bmp", "start": 11790198, "end": 11797552}, {"filename": "/text/enemy_4.bmp", "start": 11797552, "end": 11804906}, {"filename": "/text/enemy_5.bmp", "start": 11804906, "end": 11812260}, {"filename": "/text/enemy_6.bmp", "start": 11812260, "end": 11822430}, {"filename": "/text/enemy_7.bmp", "start": 11822430, "end": 11836120}, {"filename": "/text/enemy_8.bmp", "start": 11836120, "end": 11837842}, {"filename": "/text/enemy_9.bmp", "start": 11837842, "end": 11852236}, {"filename": "/text/great.bmp", "start": 11852236, "end": 11862406}, {"filename": "/text/hahahaha.bmp", "start": 11862406, "end": 11872576}, {"filename": "/text/hetare.bmp", "start": 11872576, "end": 11879930}, {"filename": "/text/illpurge.bmp", "start": 11879930, "end": 11890100}, {"filename": "/text/imsorryimstrong.bmp", "start": 11890100, "end": 11906606}, {"filename": "/text/itstoolate.bmp", "start": 11906606, "end": 11918184}, {"filename": "/text/kaizosyobon/messagebox_1.bmp", "start": 11918184, "end": 11941362}, {"filename": "/text/kaizosyobon/messagebox_10.bmp", "start": 11941362, "end": 11969340}, {"filename": "/text/kaizosyobon/messagebox_11.bmp", "start": 11969340, "end": 11982918}, {"filename": "/text/kaizosyobon/messagebox_12.bmp", "start": 11982918, "end": 11991696}, {"filename": "/text/kaizosyobon/messagebox_13.bmp", "start": 11991696, "end": 12009114}, {"filename": "/text/kaizosyobon/messagebox_14.bmp", "start": 12009114, "end": 12036132}, {"filename": "/text/kaizosyobon/messagebox_15.bmp", "start": 12036132, "end": 12045870}, {"filename": "/text/kaizosyobon/messagebox_16.bmp", "start": 12045870, "end": 12074808}, {"filename": "/text/kaizosyobon/messagebox_17.bmp", "start": 12074808, "end": 12104706}, {"filename": "/text/kaizosyobon/messagebox_18.bmp", "start": 12104706, "end": 12111564}, {"filename": "/text/kaizosyobon/messagebox_19.bmp", "start": 12111564, "end": 12139542}, {"filename": "/text/kaizosyobon/messagebox_2.bmp", "start": 12139542, "end": 12169440}, {"filename": "/text/kaizosyobon/messagebox_20.bmp", "start": 12169440, "end": 12189738}, {"filename": "/text/kaizosyobon/messagebox_3.bmp", "start": 12189738, "end": 12199476}, {"filename": "/text/kaizosyobon/messagebox_4.bmp", "start": 12199476, "end": 12215934}, {"filename": "/text/kaizosyobon/messagebox_5.bmp", "start": 12215934, "end": 12246792}, {"filename": "/text/kaizosyobon/messagebox_6.bmp", "start": 12246792, "end": 12261330}, {"filename": "/text/kaizosyobon/messagebox_7.bmp", "start": 12261330, "end": 12282588}, {"filename": "/text/kaizosyobon/messagebox_8.bmp", "start": 12282588, "end": 12313446}, {"filename": "/text/kaizosyobon/messagebox_9.bmp", "start": 12313446, "end": 12319344}, {"filename": "/text/main_0.bmp", "start": 12319344, "end": 12352122}, {"filename": "/text/main_1.bmp", "start": 12352122, "end": 12373380}, {"filename": "/text/main_10.bmp", "start": 12373380, "end": 12407118}, {"filename": "/text/main_11.bmp", "start": 12407118, "end": 12440856}, {"filename": "/text/main_12.bmp", "start": 12440856, "end": 12474594}, {"filename": "/text/main_13.bmp", "start": 12474594, "end": 12492972}, {"filename": "/text/main_14.bmp", "start": 12492972, "end": 12524790}, {"filename": "/text/main_15.bmp", "start": 12524790, "end": 12553728}, {"filename": "/text/main_16.bmp", "start": 12553728, "end": 12585546}, {"filename": "/text/main_17.bmp", "start": 12585546, "end": 12589524}, {"filename": "/text/main_18.bmp", "start": 12589524, "end": 12623262}, {"filename": "/text/main_19.bmp", "start": 12623262, "end": 12655080}, {"filename": "/text/main_2.bmp", "start": 12655080, "end": 12680178}, {"filename": "/text/main_20.bmp", "start": 12680178, "end": 12704316}, {"filename": "/text/main_21.bmp", "start": 12704316, "end": 12727494}, {"filename": "/text/main_22.bmp", "start": 12727494, "end": 12760272}, {"filename": "/text/main_23.bmp", "start": 12760272, "end": 12777690}, {"filename": "/text/main_24.bmp", "start": 12777690, "end": 12811428}, {"filename": "/text/main_25.bmp", "start": 12811428, "end": 12831726}, {"filename": "/text/main_26.bmp", "start": 12831726, "end": 12854904}, {"filename": "/text/main_27.bmp", "start": 12854904, "end": 12885762}, {"filename": "/text/main_28.bmp", "start": 12885762, "end": 12903180}, {"filename": "/text/main_29.bmp", "start": 12903180, "end": 12934038}, {"filename": "/text/main_3.bmp", "start": 12934038, "end": 12948576}, {"filename": "/text/main_30.bmp", "start": 12948576, "end": 12964074}, {"filename": "/text/main_31.bmp", "start": 12964074, "end": 12969972}, {"filename": "/text/main_32.bmp", "start": 12969972, "end": 12979710}, {"filename": "/text/main_33.bmp", "start": 12979710, "end": 12994248}, {"filename": "/text/main_34.bmp", "start": 12994248, "end": 13005906}, {"filename": "/text/main_35.bmp", "start": 13005906, "end": 13017564}, {"filename": "/text/main_36.bmp", "start": 13017564, "end": 13029222}, {"filename": "/text/main_37.bmp", "start": 13029222, "end": 13057200}, {"filename": "/text/main_38.bmp", "start": 13057200, "end": 13074618}, {"filename": "/text/main_39.bmp", "start": 13074618, "end": 13104516}, {"filename": "/text/main_4.bmp", "start": 13104516, "end": 13137294}, {"filename": "/text/main_40.bmp", "start": 13137294, "end": 13154712}, {"filename": "/text/main_41.bmp", "start": 13154712, "end": 13160610}, {"filename": "/text/main_42.bmp", "start": 13160610, "end": 13172268}, {"filename": "/text/main_43.bmp", "start": 13172268, "end": 13183926}, {"filename": "/text/main_44.bmp", "start": 13183926, "end": 13189824}, {"filename": "/text/main_45.bmp", "start": 13189824, "end": 13207242}, {"filename": "/text/main_46.bmp", "start": 13207242, "end": 13232340}, {"filename": "/text/main_47.bmp", "start": 13232340, "end": 13266078}, {"filename": "/text/main_48.bmp", "start": 13266078, "end": 13271976}, {"filename": "/text/main_49.bmp", "start": 13271976, "end": 13305714}, {"filename": "/text/main_5.bmp", "start": 13305714, "end": 13339452}, {"filename": "/text/main_50.bmp", "start": 13339452, "end": 13340550}, {"filename": "/text/main_51.bmp", "start": 13340550, "end": 13382928}, {"filename": "/text/main_6.bmp", "start": 13382928, "end": 13416666}, {"filename": "/text/main_7.bmp", "start": 13416666, "end": 13450404}, {"filename": "/text/main_8.bmp", "start": 13450404, "end": 13481262}, {"filename": "/text/main_9.bmp", "start": 13481262, "end": 13506360}, {"filename": "/text/morebadkids.bmp", "start": 13506360, "end": 13523570}, {"filename": "/text/player_0.bmp", "start": 13523570, "end": 13535852}, {"filename": "/text/player_1.bmp", "start": 13535852, "end": 13544614}, {"filename": "/text/player_10.bmp", "start": 13544614, "end": 13554784}, {"filename": "/text/player_2.bmp", "start": 13554784, "end": 13563546}, {"filename": "/text/player_3.bmp", "start": 13563546, "end": 13577940}, {"filename": "/text/player_4.bmp", "start": 13577940, "end": 13590926}, {"filename": "/text/player_5.bmp", "start": 13590926, "end": 13601096}, {"filename": "/text/player_6.bmp", "start": 13601096, "end": 13612674}, {"filename": "/text/player_7.bmp", "start": 13612674, "end": 13629884}, {"filename": "/text/player_8.bmp", "start": 13629884, "end": 13637238}, {"filename": "/text/player_9.bmp", "start": 13637238, "end": 13647408}, {"filename": "/text/poocouscous.bmp", "start": 13647408, "end": 13656874}, {"filename": "/text/stillasoldier.bmp", "start": 13656874, "end": 13671972}, {"filename": "/text/suretokill.bmp", "start": 13671972, "end": 13682142}, {"filename": "/text/thatsalie.bmp", "start": 13682142, "end": 13686680}, {"filename": "/text/uselessuseless.bmp", "start": 13686680, "end": 13701074}], "remote_package_size": 13701074});
 
   })();
 
-// end include: /var/folders/dm/cwds72jn0kvd_bmcsvqsk4nh0000gp/T/tmpsnvxcbx7.js
-// include: /var/folders/dm/cwds72jn0kvd_bmcsvqsk4nh0000gp/T/tmpuo126zy1.js
+// end include: /var/folders/dm/cwds72jn0kvd_bmcsvqsk4nh0000gp/T/tmp03gsw7ug.js
+// include: /var/folders/dm/cwds72jn0kvd_bmcsvqsk4nh0000gp/T/tmpu0kuk0wp.js
 
     // All the pre-js content up to here must remain later on, we need to run
     // it.
     if ((typeof ENVIRONMENT_IS_WASM_WORKER != 'undefined' && ENVIRONMENT_IS_WASM_WORKER) || (typeof ENVIRONMENT_IS_PTHREAD != 'undefined' && ENVIRONMENT_IS_PTHREAD) || (typeof ENVIRONMENT_IS_AUDIO_WORKLET != 'undefined' && ENVIRONMENT_IS_AUDIO_WORKLET)) Module['preRun'] = [];
     var necessaryPreJSTasks = Module['preRun'].slice();
-  // end include: /var/folders/dm/cwds72jn0kvd_bmcsvqsk4nh0000gp/T/tmpuo126zy1.js
-// include: /var/folders/dm/cwds72jn0kvd_bmcsvqsk4nh0000gp/T/tmpb8ei3epe.js
+  // end include: /var/folders/dm/cwds72jn0kvd_bmcsvqsk4nh0000gp/T/tmpu0kuk0wp.js
+// include: /var/folders/dm/cwds72jn0kvd_bmcsvqsk4nh0000gp/T/tmp2ra2yq6q.js
 
     if (!Module['preRun']) throw 'Module.preRun should exist because file support used it; did a pre-js delete it?';
     necessaryPreJSTasks.forEach((task) => {
       if (Module['preRun'].indexOf(task) < 0) throw 'All preRun tasks that exist before user pre-js code should remain after; did you replace Module or modify Module.preRun?';
     });
-  // end include: /var/folders/dm/cwds72jn0kvd_bmcsvqsk4nh0000gp/T/tmpb8ei3epe.js
+  // end include: /var/folders/dm/cwds72jn0kvd_bmcsvqsk4nh0000gp/T/tmp2ra2yq6q.js
 
 
-var arguments_ = [];
+var programArgs = [];
 var thisProgram = './this.program';
 var quit_ = (status, toThrow) => {
   throw toThrow;
@@ -290,7 +291,7 @@ readAsync = async (filename, binary = true) => {
     thisProgram = process.argv[1].replace(/\\/g, '/');
   }
 
-  arguments_ = process.argv.slice(2);
+  programArgs = process.argv.slice(2);
 
   // MODULARIZE will export the module in the proper place outside, we don't need to export here
   if (typeof module != 'undefined') {
@@ -504,15 +505,31 @@ function dbg(...args) {
 })();
 
 function consumedModuleProp(prop) {
-  if (!Object.getOwnPropertyDescriptor(Module, prop)) {
-    Object.defineProperty(Module, prop, {
-      configurable: true,
-      set() {
-        abort(`Attempt to set \`Module.${prop}\` after it has already been processed.  This can happen, for example, when code is injected via '--post-js' rather than '--pre-js'`);
-
+  var value = Module[prop];
+  var msg = `Attempt to modify \`Module.${prop}\` after it has already been processed.  This can happen, for example, when code is injected via '--post-js' rather than '--pre-js'`;
+  if (Array.isArray(value)) {
+    value = new Proxy(value, {
+      set(target, key, val) {
+        abort(msg);
+        return false;
+      },
+      defineProperty(target, key, descriptor) {
+        abort(msg);
+        return false;
+      },
+      deleteProperty(target, key) {
+        abort(msg);
+        return false;
       }
     });
   }
+  Object.defineProperty(Module, prop, {
+    configurable: true,
+    get() { return value; },
+    set() {
+      abort(msg);
+    }
+  });
 }
 
 function makeInvalidEarlyAccess(name) {
@@ -615,8 +632,23 @@ var runtimeInitialized = false;
 
 
 
+// When ALLOW_MEMORY_GROWTH is enabled, the conversion from Wasm
+// memory to ArrayBuffer requires some additional logic.
+function getMemoryBuffer() {
+  try {
+    // This method may be missing or could fail with `Memory must have a maximum`
+    var b = wasmMemory.toResizableBuffer();
+    return b;
+    
+  } catch {}
+  return wasmMemory.buffer;
+}
+
 function updateMemoryViews() {
-  var b = wasmMemory.buffer;
+  // If we already have a heap that is resizeable/growable buffer we don't
+  // need to do anything in updateMemoryViews.
+  if (HEAP8?.buffer?.resizable) return;
+  var b = getMemoryBuffer();
   HEAP8 = new Int8Array(b);
   HEAP16 = new Int16Array(b);
   HEAPU8 = new Uint8Array(b);
@@ -636,11 +668,10 @@ assert(globalThis.Int32Array && globalThis.Float64Array && Int32Array.prototype.
        'JS engine does not provide full typed array support');
 
 function preRun() {
-  if (Module['preRun']) {
-    if (typeof Module['preRun'] == 'function') Module['preRun'] = [Module['preRun']];
-    while (Module['preRun'].length) {
-      addOnPreRun(Module['preRun'].shift());
-    }
+  var preRun = Module['preRun'];
+  if (preRun) {
+    if (typeof preRun == 'function') preRun = [preRun];
+    onPreRuns.push(...preRun);
   }
   consumedModuleProp('preRun');
   // Begin ATPRERUNS hooks
@@ -664,22 +695,17 @@ TTY.init();
   // Begin ATPOSTCTORS hooks
   FS.ignorePermissions = false;
   // End ATPOSTCTORS hooks
-}
 
-function preMain() {
   checkStackCookie();
-  // No ATMAINS hooks
 }
 
 function postRun() {
   checkStackCookie();
-   // PThreads reuse the runtime from the main thread.
 
-  if (Module['postRun']) {
-    if (typeof Module['postRun'] == 'function') Module['postRun'] = [Module['postRun']];
-    while (Module['postRun'].length) {
-      addOnPostRun(Module['postRun'].shift());
-    }
+  var postRun = Module['postRun'];
+  if (postRun) {
+    if (typeof postRun == 'function') postRun = [postRun];
+    onPostRuns.push(...postRun);
   }
   consumedModuleProp('postRun');
 
@@ -723,27 +749,23 @@ function abort(what) {
   throw e;
 }
 
-function createExportWrapper(name, nargs) {
+function createExportWrapper(name, func, nargs) {
+  assert(func);
   return (...args) => {
     assert(runtimeInitialized, `native function \`${name}\` called before runtime initialization`);
-    var f = wasmExports[name];
-    assert(f, `exported native function \`${name}\` not found`);
     // Only assert for too many arguments. Too few can be valid since the missing arguments will be zero filled.
     assert(args.length <= nargs, `native function \`${name}\` called with ${args.length} args but expects ${nargs}`);
-    return f(...args);
+    return func(...args);
   };
 }
 
 var wasmBinaryFile;
 
 function findWasmBinary() {
-  return locateFile('SyobonAction.wasm');
+  return locateFile('SyobonKZ.wasm');
 }
 
 function getBinarySync(file) {
-  if (file == wasmBinaryFile && wasmBinary) {
-    return new Uint8Array(wasmBinary);
-  }
   if (readBinary) {
     return readBinary(file);
   }
@@ -826,18 +848,15 @@ async function createWasm() {
   // Load the wasm module and create an instance of using native support in the JS engine.
   // handle a generated wasm instance, receiving its exports and
   // performing other necessary setup
-  /** @param {WebAssembly.Module=} module*/
-  function receiveInstance(instance, module) {
+  function receiveInstance(instance) {
     wasmExports = instance.exports;
 
     assignWasmExports(wasmExports);
 
     updateMemoryViews();
 
-    removeRunDependency('wasm-instantiate');
     return wasmExports;
   }
-  addRunDependency('wasm-instantiate');
 
   // Prefer streaming instantiation if available.
   // Async compilation can be confusing when an error on the page overwrites Module
@@ -862,15 +881,14 @@ async function createWasm() {
   // performing.
   // Also pthreads and wasm workers initialize the wasm instance through this
   // path.
-  if (Module['instantiateWasm']) {
-    return new Promise((resolve, reject) => {
+  var instantiateWasm = Module['instantiateWasm'];
+  if (instantiateWasm) {
+    return new Promise((resolve) => {
       try {
-        Module['instantiateWasm'](info, (inst, mod) => {
-          resolve(receiveInstance(inst, mod));
-        });
+        instantiateWasm(info, (inst) => resolve(receiveInstance(inst)));
       } catch(e) {
         err(`Module.instantiateWasm callback failed with error: ${e}`);
-        reject(e);
+        throw e;
       }
     });
   }
@@ -995,7 +1013,6 @@ async function createWasm() {
   isFullscreen:false,
   pointerLock:false,
   moduleContextCreatedCallbacks:[],
-  workers:[],
   preloadedImages:{
   },
   preloadedAudios:{
@@ -1062,7 +1079,7 @@ async function createWasm() {
             var b = new Blob([byteArray], { type: Browser.getMimetype(name) });
             var url = URL.createObjectURL(b); // XXX we never revoke this!
             var audio = new Audio();
-            audio.addEventListener('canplaythrough', () => finish(audio), false); // use addEventListener due to chromium bug 124926
+            audio.addEventListener('canplaythrough', () => finish(audio)); // use addEventListener due to chromium bug 124926
             audio.onerror = (event) => {
               if (done) return;
               err(`warning: browser could not fully decode audio ${name}, trying slower base64 approach`);
@@ -1113,7 +1130,7 @@ async function createWasm() {
           // forced aspect ratio can be enabled by defining 'forcedAspectRatio' on Module
           // Module['forcedAspectRatio'] = 4 / 3;
   
-          document.addEventListener('pointerlockchange', pointerLockChange, false);
+          document.addEventListener('pointerlockchange', pointerLockChange);
   
           if (Module['elementPointerLock']) {
             canvas.addEventListener("click", (ev) => {
@@ -1121,7 +1138,7 @@ async function createWasm() {
                 Browser.getCanvas().requestPointerLock();
                 ev.preventDefault();
               }
-            }, false);
+            });
           }
         }
       },
@@ -1202,16 +1219,14 @@ async function createWasm() {
               Browser.updateCanvasDimensions(canvas);
             }
           }
-          Module['onFullScreen']?.(Browser.isFullscreen);
-          Module['onFullscreen']?.(Browser.isFullscreen);
         }
   
         if (!Browser.fullscreenHandlersInstalled) {
           Browser.fullscreenHandlersInstalled = true;
-          document.addEventListener('fullscreenchange', fullscreenChange, false);
-          document.addEventListener('mozfullscreenchange', fullscreenChange, false);
-          document.addEventListener('webkitfullscreenchange', fullscreenChange, false);
-          document.addEventListener('MSFullscreenChange', fullscreenChange, false);
+          document.addEventListener('fullscreenchange', fullscreenChange);
+          document.addEventListener('mozfullscreenchange', fullscreenChange);
+          document.addEventListener('webkitfullscreenchange', fullscreenChange);
+          document.addEventListener('MSFullscreenChange', fullscreenChange);
         }
   
         // create a new parent to ensure the canvas has no siblings. this allows browsers to optimize full screen performance when its parent is the full screen root
@@ -1431,13 +1446,6 @@ async function createWasm() {
         }
         var w = wNative;
         var h = hNative;
-        if (Module['forcedAspectRatio'] > 0) {
-          if (w/h < Module['forcedAspectRatio']) {
-            w = Math.round(h * Module['forcedAspectRatio']);
-          } else {
-            h = Math.round(w / Module['forcedAspectRatio']);
-          }
-        }
         if ((getFullscreenElement() === canvas.parentNode) && (typeof screen != 'undefined')) {
            var factor = Math.min(screen.width / w, screen.height / h);
            w = Math.round(w * factor);
@@ -1509,71 +1517,6 @@ async function createWasm() {
   var onPreRuns = [];
   var addOnPreRun = (cb) => onPreRuns.push(cb);
 
-  var runDependencies = 0;
-  
-  
-  var dependenciesFulfilled = null;
-  
-  var runDependencyTracking = {
-  };
-  
-  var runDependencyWatcher = null;
-  var removeRunDependency = (id) => {
-      runDependencies--;
-  
-      Module['monitorRunDependencies']?.(runDependencies);
-  
-      assert(id, 'removeRunDependency requires an ID');
-      assert(runDependencyTracking[id]);
-      delete runDependencyTracking[id];
-      if (runDependencies == 0) {
-        if (runDependencyWatcher !== null) {
-          clearInterval(runDependencyWatcher);
-          runDependencyWatcher = null;
-        }
-        if (dependenciesFulfilled) {
-          var callback = dependenciesFulfilled;
-          dependenciesFulfilled = null;
-          callback(); // can add another dependenciesFulfilled
-        }
-      }
-    };
-  
-  
-  var addRunDependency = (id) => {
-      runDependencies++;
-  
-      Module['monitorRunDependencies']?.(runDependencies);
-  
-      assert(id, 'addRunDependency requires an ID')
-      assert(!runDependencyTracking[id]);
-      runDependencyTracking[id] = 1;
-      if (runDependencyWatcher === null && globalThis.setInterval) {
-        // Check for missing dependencies every few seconds
-        runDependencyWatcher = setInterval(() => {
-          if (ABORT) {
-            clearInterval(runDependencyWatcher);
-            runDependencyWatcher = null;
-            return;
-          }
-          var shown = false;
-          for (var dep in runDependencyTracking) {
-            if (!shown) {
-              shown = true;
-              err('still waiting on run dependencies:');
-            }
-            err(`dependency: ${dep}`);
-          }
-          if (shown) {
-            err('(end of list)');
-          }
-        }, 10000);
-        // Prevent this timer from keeping the runtime alive if nothing
-        // else is.
-        runDependencyWatcher.unref?.()
-      }
-    };
-
 
   
     /**
@@ -1603,7 +1546,6 @@ async function createWasm() {
       ptr >>>= 0;
       return '0x' + ptr.toString(16).padStart(8, '0');
     }
-
 
   
     /**
@@ -1790,7 +1732,10 @@ var _emscripten_set_main_loop_timing = (mode, value) => {
     } else {
       assert(mode == 2);
       if (!MainLoop.setImmediate) {
-        if (globalThis.setImmediate) {
+        if (globalThis.scheduler) {
+          // Some modern browsers implement scheduler.postTask, but not all.
+          MainLoop.setImmediate = scheduler.postTask.bind(scheduler);
+        } else if (globalThis.setImmediate) {
           MainLoop.setImmediate = setImmediate;
         } else {
           // Emulate setImmediate. (note: not a complete polyfill, we don't emulate clearImmediate() to keep code size to minimum, since not needed)
@@ -1798,9 +1743,7 @@ var _emscripten_set_main_loop_timing = (mode, value) => {
           var emscriptenMainLoopMessageId = 'setimmediate';
           /** @param {Event} event */
             var MainLoop_setImmediate_messageHandler = (event) => {
-              // When called in current thread or Worker, the main loop ID is structured slightly different to accommodate for --proxy-to-worker runtime listening to Worker events,
-              // so check for both cases.
-              if (event.data === emscriptenMainLoopMessageId || event.data.target === emscriptenMainLoopMessageId) {
+              if (event.data === emscriptenMainLoopMessageId) {
                 event.stopPropagation();
                 setImmediates.shift()();
               }
@@ -1809,10 +1752,12 @@ var _emscripten_set_main_loop_timing = (mode, value) => {
             MainLoop.setImmediate = /** @type{function(function(): ?, ...?): number} */((func) => {
               setImmediates.push(func);
               if (ENVIRONMENT_IS_WORKER) {
-                Module['setImmediates'] ??= [];
-                Module['setImmediates'].push(func);
-                postMessage({target: emscriptenMainLoopMessageId}); // In --proxy-to-worker, route the message via proxyClient.js
-              } else postMessage(emscriptenMainLoopMessageId, "*"); // On the main thread, can just send the message to itself.
+                // The postMessge API in a Worker, sends message to the main
+                // thread and does not support the `targetOrigin` (*) argument.
+                postMessage(emscriptenMainLoopMessageId);
+              } else {
+                postMessage(emscriptenMainLoopMessageId, '*');
+              }
             });
           }
         }
@@ -1963,8 +1908,6 @@ var _emscripten_set_main_loop_timing = (mode, value) => {
         }
       },
   init() {
-        Module['preMainLoop'] && MainLoop.preMainLoop.push(Module['preMainLoop']);
-        Module['postMainLoop'] && MainLoop.postMainLoop.push(Module['postMainLoop']);
       },
   runIter(func) {
         if (ABORT) return;
@@ -3289,7 +3232,7 @@ var _emscripten_set_main_loop_timing = (mode, value) => {
       // This block is not needed on v19+ since crypto.getRandomValues is builtin
       if (ENVIRONMENT_IS_NODE) {
         var nodeCrypto = require('node:crypto');
-        return (view) => nodeCrypto.randomFillSync(view);
+        return (view) => (nodeCrypto.randomFillSync(view), 0);
       }
   
       return (view) => (crypto.getRandomValues(view), 0);
@@ -3301,6 +3244,14 @@ var _emscripten_set_main_loop_timing = (mode, value) => {
   
   var UTF8Decoder = globalThis.TextDecoder && new TextDecoder();
   
+  
+    /**
+   * heapOrArray is either a regular array, or a JavaScript typed array view.
+   * @param {number} idx
+   * @param {number=} maxBytesToRead
+   * @param {boolean=} ignoreNul
+   * @return {number}
+   */
   var findStringEnd = (heapOrArray, idx, maxBytesToRead, ignoreNul) => {
       var maxIdx = idx + maxBytesToRead;
       if (ignoreNul) return maxIdx;
@@ -4079,6 +4030,73 @@ var _emscripten_set_main_loop_timing = (mode, value) => {
       }
     };
   
+  var dependenciesPromise = null;
+  var resolveRunDependencies = async () => dependenciesPromise;
+  var runDependencies = 0;
+  
+  
+  
+  var runDependencyTracking = {
+  };
+  
+  var runDependencyWatcher = null;
+  var removeRunDependency = (id) => {
+      runDependencies--;
+  
+      Module['monitorRunDependencies']?.(runDependencies);
+  
+      assert(id, 'removeRunDependency requires an ID');
+      assert(runDependencyTracking[id]);
+      delete runDependencyTracking[id];
+      if (!runDependencies) {
+        if (runDependencyWatcher !== null) {
+          clearInterval(runDependencyWatcher);
+          runDependencyWatcher = null;
+        }
+        dependenciesPromise.resolve();
+      }
+    };
+  
+  
+  
+  var addRunDependency = (id) => {
+      if (!runDependencies) {
+        var resolve;
+        dependenciesPromise = new Promise((r) => resolve = r);
+        dependenciesPromise.resolve = resolve;
+      }
+      runDependencies++;
+  
+      Module['monitorRunDependencies']?.(runDependencies);
+  
+      assert(id, 'addRunDependency requires an ID')
+      assert(!runDependencyTracking[id]);
+      runDependencyTracking[id] = 1;
+      if (runDependencyWatcher === null && globalThis.setInterval) {
+        // Check for missing dependencies every few seconds
+        runDependencyWatcher = setInterval(() => {
+          if (ABORT) {
+            clearInterval(runDependencyWatcher);
+            runDependencyWatcher = null;
+            return;
+          }
+          var shown = false;
+          for (var dep in runDependencyTracking) {
+            if (!shown) {
+              shown = true;
+              err('still waiting on run dependencies:');
+            }
+            err(`dependency: ${dep}`);
+          }
+          if (shown) {
+            err('(end of list)');
+          }
+        }, 10000);
+        // Prevent this timer from keeping the runtime alive if nothing
+        // else is.
+        runDependencyWatcher.unref?.()
+      }
+    };
   
   
   var FS_handledByPreloadPlugin = async (byteArray, fullname) => {
@@ -5272,8 +5290,8 @@ var _emscripten_set_main_loop_timing = (mode, value) => {
         return stream.stream_ops.ioctl(stream, cmd, arg);
       },
   readFile(path, opts = {}) {
-        opts.flags = opts.flags || 0;
-        opts.encoding = opts.encoding || 'binary';
+        opts.flags = opts.flags ?? 0;
+        opts.encoding = opts.encoding ?? 'binary';
         if (opts.encoding !== 'utf8' && opts.encoding !== 'binary') {
           abort(`Invalid encoding type "${opts.encoding}"`);
         }
@@ -5289,7 +5307,7 @@ var _emscripten_set_main_loop_timing = (mode, value) => {
         return buf;
       },
   writeFile(path, data, opts = {}) {
-        opts.flags = opts.flags || 577;
+        opts.flags = opts.flags ?? 577;
         var stream = FS.open(path, opts.flags, opts.mode);
         data = FS_fileDataToTypedArray(data);
         FS.write(stream, data, 0, data.byteLength, undefined, opts.canOwn);
@@ -5626,8 +5644,8 @@ var _emscripten_set_main_loop_timing = (mode, value) => {
   
             // Function to get a range from the remote URL.
             var doXHR = (from, to) => {
-              if (from > to) abort("invalid range (" + from + ", " + to + ") or no bytes requested!");
-              if (to > datalength-1) abort("only " + datalength + " bytes available! programmer error!");
+              if (from > to) abort(`invalid range (${from}, ${to}) or no bytes requested!`);
+              if (to > datalength-1) abort(`only ${datalength} bytes available! programmer error!`);
   
               // TODO: Use mozResponseArrayBuffer, responseStream, etc. if available.
               var xhr = new XMLHttpRequest();
@@ -5645,7 +5663,7 @@ var _emscripten_set_main_loop_timing = (mode, value) => {
               if (xhr.response !== undefined) {
                 return new Uint8Array(/** @type{Array<number>} */(xhr.response || []));
               }
-              return intArrayFromString(xhr.responseText || '', true);
+              return intArrayFromString(xhr.responseText ?? '', true);
             };
             var lazyArray = this;
             lazyArray.setDataGetter((chunkNum) => {
@@ -5859,12 +5877,9 @@ var _emscripten_set_main_loop_timing = (mode, value) => {
           filename = PATH_FS.resolve(filename);
           raw = Browser.preloadedImages[filename];
           if (!raw) {
-            if (raw === null) err('Trying to reuse preloaded image, but freePreloadedMediaOnUse is set!');
             warnOnce(`Cannot find preloaded image ${filename}`);
             warnOnce(`Cannot find preloaded image ${filename}. Consider using STB_IMAGE=1 if you want synchronous image decoding (see settings.js), or package files with --use-preload-plugins`);
             return 0;
-          } else if (Module['freePreloadedMediaOnUse']) {
-            Browser.preloadedImages[filename] = null;
           }
         }
   
@@ -5877,7 +5892,7 @@ var _emscripten_set_main_loop_timing = (mode, value) => {
           var imageData = surfData.ctx.getImageData(0, 0, surfData.width, surfData.height);
           if (raw.bpp == 4) {
             // rgba
-            imageData.data.set(HEAPU8.subarray((raw.data), raw.data+raw.size));
+            imageData.data.set(HEAPU8.subarray(raw.data, raw.data + raw.size));
           } else if (raw.bpp == 3) {
             // rgb
             var pixels = raw.size/3;
@@ -6017,7 +6032,6 @@ var _emscripten_set_main_loop_timing = (mode, value) => {
         filename = PATH_FS.resolve(rwops.filename);
         var raw = Browser.preloadedAudios[filename];
         if (!raw) {
-          if (raw === null) err('Trying to reuse preloaded audio, but freePreloadedMediaOnUse is set!');
           if (!Module['noAudioDecoding']) warnOnce('Cannot find preloaded audio ' + filename);
   
           // see if we can read the file-contents from the in-memory FS
@@ -6028,16 +6042,13 @@ var _emscripten_set_main_loop_timing = (mode, value) => {
             return 0;
           }
         }
-        if (Module['freePreloadedMediaOnUse']) {
-          Browser.preloadedAudios[filename] = null;
-        }
         audio = raw;
       } else if (rwops.bytes !== undefined) {
         // For Web Audio context buffer decoding, we must make a clone of the
         // audio data, but for <media> element, a view to existing data is
         // sufficient.
         if (SDL.webAudioAvailable()) {
-          bytes = HEAPU8.buffer.slice(rwops.bytes, rwops.bytes + rwops.count);
+          bytes = HEAPU8.slice(rwops.bytes, rwops.bytes + rwops.count);
         } else {
           bytes = HEAPU8.subarray(rwops.bytes, rwops.bytes + rwops.count);
         }
@@ -6047,10 +6058,7 @@ var _emscripten_set_main_loop_timing = (mode, value) => {
   
       var arrayBuffer = bytes ? bytes.buffer || bytes : bytes;
   
-      // To allow user code to work around browser bugs with audio playback on <audio> elements an Web Audio, enable
-      // the user code to hook in a callback to decide on a file basis whether each file should use Web Audio or <audio> for decoding and playback.
-      // In particular, see https://bugzil.la/654787 and https://bugzil.la/1012801 for tradeoffs.
-      var canPlayWithWebAudio = Module['SDL_canPlayWithWebAudio'] === undefined || Module['SDL_canPlayWithWebAudio'](filename, arrayBuffer);
+      var canPlayWithWebAudio = true;
   
       if (bytes !== undefined && SDL.webAudioAvailable() && canPlayWithWebAudio) {
         audio = undefined;
@@ -6314,6 +6322,23 @@ var _emscripten_set_main_loop_timing = (mode, value) => {
       return SDL.errorMessage;
     };
 
+  var _SDL_GetRGBA = (pixel, fmt, r, g, b, a) => {
+      SDL.checkPixelFormat(fmt);
+      // We assume the machine is little-endian.
+      if (r) {
+        HEAP8[r] = pixel&0xff;
+      }
+      if (g) {
+        HEAP8[g] = (pixel>>8)&0xff;
+      }
+      if (b) {
+        HEAP8[b] = (pixel>>16)&0xff;
+      }
+      if (a) {
+        HEAP8[a] = (pixel>>24)&0xff;
+      }
+    };
+
 
   
   /** @param{number} initFlags */
@@ -6322,8 +6347,8 @@ var _emscripten_set_main_loop_timing = (mode, value) => {
       SDL.initFlags = initFlags;
   
       // capture all key events. we just keep down and up, but also capture press to prevent default actions
-      if (!Module['doNotCaptureKeyboard']) {
-        var keyboardListeningElement = Module['keyboardListeningElement'] || document;
+      if (!false) {
+        var keyboardListeningElement = document;
         keyboardListeningElement.addEventListener("keydown", SDL.receiveEvent);
         keyboardListeningElement.addEventListener("keyup", SDL.receiveEvent);
         keyboardListeningElement.addEventListener("keypress", SDL.receiveEvent);
@@ -6409,6 +6434,9 @@ var _emscripten_set_main_loop_timing = (mode, value) => {
       _SDL_AudioQuit();
       out('SDL_Quit called (and ignored)');
     };
+
+
+  var _SDL_SaveBMP_RW = (surface, dst, freedst) => abort('SDL_SaveBMP_RW: TODO');
 
   var GLctx;
   
@@ -6505,7 +6533,7 @@ var _emscripten_set_main_loop_timing = (mode, value) => {
         'WEBGL_polygon_mode'
       ];
       // .getSupportedExtensions() can return null if context is lost, so coerce to empty array.
-      return (ctx.getSupportedExtensions() || []).filter(ext => supportedExtensions.includes(ext));
+      return ctx.getSupportedExtensions()?.filter(ext => supportedExtensions.includes(ext)) ?? [];
     };
   
   
@@ -6858,6 +6886,17 @@ var _emscripten_set_main_loop_timing = (mode, value) => {
       icon &&= UTF8ToString(icon);
     };
 
+  var _SDL_WM_ToggleFullScreen = (surf) => {
+      if (Browser.exitFullscreen()) {
+        return 1;
+      }
+      if (!SDL.canRequestFullscreen) {
+        return 0;
+      }
+      SDL.isRequestingFullscreen = true;
+      return 1;
+    };
+
   var _TTF_CloseFont = (font) => {
       SDL.fonts[font] = null;
     };
@@ -6990,6 +7029,264 @@ var _emscripten_set_main_loop_timing = (mode, value) => {
       assert(false, 'Exception thrown, but exception catching is not enabled. Compile with -sNO_DISABLE_EXCEPTION_CATCHING or -sEXCEPTION_CATCHING_ALLOWED=[..] to catch.');
     };
 
+  var syscallGetVarargI = () => {
+      assert(SYSCALLS.varargs != undefined);
+      // the `+` prepended here is necessary to convince the JSCompiler that varargs is indeed a number.
+      var ret = HEAP32[((+SYSCALLS.varargs)>>2)];
+      SYSCALLS.varargs += 4;
+      return ret;
+    };
+  var syscallGetVarargP = syscallGetVarargI;
+  
+  
+  
+  
+  var SYSCALLS = {
+  currentUmask:18,
+  calculateAt(dirfd, path, allowEmpty) {
+        if (PATH.isAbs(path)) {
+          return path;
+        }
+        // relative path
+        var dir;
+        if (dirfd === -100) {
+          dir = FS.cwd();
+        } else {
+          var dirstream = SYSCALLS.getStreamFromFD(dirfd);
+          dir = dirstream.path;
+        }
+        if (path.length == 0) {
+          if (!allowEmpty) {
+            throw new FS.ErrnoError(44);;
+          }
+          return dir;
+        }
+        return dir + '/' + path;
+      },
+  writeStat(buf, stat) {
+        HEAPU32[((buf)>>2)] = stat.dev;
+        HEAPU32[(((buf)+(4))>>2)] = stat.mode;
+        HEAPU32[(((buf)+(8))>>2)] = stat.nlink;
+        HEAPU32[(((buf)+(12))>>2)] = stat.uid;
+        HEAPU32[(((buf)+(16))>>2)] = stat.gid;
+        HEAPU32[(((buf)+(20))>>2)] = stat.rdev;
+        HEAP64[(((buf)+(24))>>3)] = BigInt(stat.size);
+        HEAP32[(((buf)+(32))>>2)] = 4096;
+        HEAP32[(((buf)+(36))>>2)] = stat.blocks;
+        var atime = stat.atime.getTime();
+        var mtime = stat.mtime.getTime();
+        var ctime = stat.ctime.getTime();
+        HEAP64[(((buf)+(40))>>3)] = BigInt(Math.floor(atime / 1000));
+        HEAPU32[(((buf)+(48))>>2)] = (atime % 1000) * 1000 * 1000;
+        HEAP64[(((buf)+(56))>>3)] = BigInt(Math.floor(mtime / 1000));
+        HEAPU32[(((buf)+(64))>>2)] = (mtime % 1000) * 1000 * 1000;
+        HEAP64[(((buf)+(72))>>3)] = BigInt(Math.floor(ctime / 1000));
+        HEAPU32[(((buf)+(80))>>2)] = (ctime % 1000) * 1000 * 1000;
+        HEAP64[(((buf)+(88))>>3)] = BigInt(stat.ino);
+        return 0;
+      },
+  writeStatFs(buf, stats) {
+        HEAPU32[(((buf)+(4))>>2)] = stats.bsize;
+        HEAPU32[(((buf)+(60))>>2)] = stats.bsize;
+        HEAP64[(((buf)+(8))>>3)] = BigInt(stats.blocks);
+        HEAP64[(((buf)+(16))>>3)] = BigInt(stats.bfree);
+        HEAP64[(((buf)+(24))>>3)] = BigInt(stats.bavail);
+        HEAP64[(((buf)+(32))>>3)] = BigInt(stats.files);
+        HEAP64[(((buf)+(40))>>3)] = BigInt(stats.ffree);
+        HEAPU32[(((buf)+(48))>>2)] = stats.fsid;
+        HEAPU32[(((buf)+(64))>>2)] = stats.flags;  // ST_NOSUID
+        HEAPU32[(((buf)+(56))>>2)] = stats.namelen;
+      },
+  doMsync(addr, stream, len, flags, offset) {
+        if (!FS.isFile(stream.node.mode)) {
+          throw new FS.ErrnoError(43);
+        }
+        if (flags & 2) {
+          // MAP_PRIVATE calls need not to be synced back to underlying fs
+          return 0;
+        }
+        var buffer = HEAPU8.subarray(addr, addr + len);
+        FS.msync(stream, buffer, offset, len, flags);
+      },
+  getStreamFromFD(fd) {
+        var stream = FS.getStreamChecked(fd);
+        return stream;
+      },
+  varargs:undefined,
+  getStr(ptr) {
+        var ret = UTF8ToString(ptr);
+        return ret;
+      },
+  };
+  function ___syscall_fcntl64(fd, cmd, varargs) {
+  SYSCALLS.varargs = varargs;
+  try {
+  
+      var stream = SYSCALLS.getStreamFromFD(fd);
+      switch (cmd) {
+        case 0: {
+          var arg = syscallGetVarargI();
+          if (arg < 0) {
+            return -28;
+          }
+          while (FS.streams[arg]) {
+            arg++;
+          }
+          var newStream;
+          newStream = FS.dupStream(stream, arg);
+          return newStream.fd;
+        }
+        case 1:
+        case 2:
+          return 0;  // FD_CLOEXEC makes no sense for a single process.
+        case 3:
+          return stream.flags;
+        case 4: {
+          var arg = syscallGetVarargI();
+          var mask = 289792;
+          stream.flags = (stream.flags & ~mask) | (arg & mask);
+          return 0;
+        }
+        case 12: {
+          var arg = syscallGetVarargP();
+          var offset = 0;
+          // We're always unlocked.
+          HEAP16[(((arg)+(offset))>>1)] = 2;
+          return 0;
+        }
+        case 13:
+        case 14:
+          // Pretend that the locking is successful. These are process-level locks,
+          // and Emscripten programs are a single process. If we supported linking a
+          // filesystem between programs, we'd need to do more here.
+          // See https://github.com/emscripten-core/emscripten/issues/23697
+          return 0;
+      }
+      return -28;
+    } catch (e) {
+    if (typeof FS == 'undefined' || !(e.name === 'ErrnoError')) throw e;
+    return -e.errno;
+  }
+  }
+  
+
+  
+  function ___syscall_ioctl(fd, op, varargs) {
+  SYSCALLS.varargs = varargs;
+  try {
+  
+      var stream = SYSCALLS.getStreamFromFD(fd);
+      switch (op) {
+        case 21509: {
+          if (!stream.tty) return -59;
+          return 0;
+        }
+        case 21505: {
+          if (!stream.tty) return -59;
+          if (stream.tty.ops.ioctl_tcgets) {
+            var termios = stream.tty.ops.ioctl_tcgets(stream);
+            var argp = syscallGetVarargP();
+            HEAP32[((argp)>>2)] = termios.c_iflag || 0;
+            HEAP32[(((argp)+(4))>>2)] = termios.c_oflag || 0;
+            HEAP32[(((argp)+(8))>>2)] = termios.c_cflag || 0;
+            HEAP32[(((argp)+(12))>>2)] = termios.c_lflag || 0;
+            for (var i = 0; i < 32; i++) {
+              HEAP8[(argp + i)+(17)] = termios.c_cc[i] || 0;
+            }
+            return 0;
+          }
+          return 0;
+        }
+        case 21510:
+        case 21511:
+        case 21512: {
+          if (!stream.tty) return -59;
+          return 0; // no-op, not actually adjusting terminal settings
+        }
+        case 21506:
+        case 21507:
+        case 21508: {
+          if (!stream.tty) return -59;
+          if (stream.tty.ops.ioctl_tcsets) {
+            var argp = syscallGetVarargP();
+            var c_iflag = HEAP32[((argp)>>2)];
+            var c_oflag = HEAP32[(((argp)+(4))>>2)];
+            var c_cflag = HEAP32[(((argp)+(8))>>2)];
+            var c_lflag = HEAP32[(((argp)+(12))>>2)];
+            var c_cc = []
+            for (var i = 0; i < 32; i++) {
+              c_cc.push(HEAP8[(argp + i)+(17)]);
+            }
+            return stream.tty.ops.ioctl_tcsets(stream.tty, op, { c_iflag, c_oflag, c_cflag, c_lflag, c_cc });
+          }
+          return 0; // no-op, not actually adjusting terminal settings
+        }
+        case 21519: {
+          if (!stream.tty) return -59;
+          var argp = syscallGetVarargP();
+          HEAP32[((argp)>>2)] = 0;
+          return 0;
+        }
+        case 21520: {
+          if (!stream.tty) return -59;
+          return -28; // not supported
+        }
+        case 21537:
+        case 21531: {
+          var argp = syscallGetVarargP();
+          return FS.ioctl(stream, op, argp);
+        }
+        case 21523: {
+          // TODO: in theory we should write to the winsize struct that gets
+          // passed in, but for now musl doesn't read anything on it
+          if (!stream.tty) return -59;
+          if (stream.tty.ops.ioctl_tiocgwinsz) {
+            var winsize = stream.tty.ops.ioctl_tiocgwinsz(stream.tty);
+            var argp = syscallGetVarargP();
+            HEAP16[((argp)>>1)] = winsize[0];
+            HEAP16[(((argp)+(2))>>1)] = winsize[1];
+          }
+          return 0;
+        }
+        case 21524: {
+          // TODO: technically, this ioctl call should change the window size.
+          // but, since emscripten doesn't have any concept of a terminal window
+          // yet, we'll just silently throw it away as we do TIOCGWINSZ
+          if (!stream.tty) return -59;
+          return 0;
+        }
+        case 21515: {
+          if (!stream.tty) return -59;
+          return 0;
+        }
+        default: return -28; // not supported
+      }
+    } catch (e) {
+    if (typeof FS == 'undefined' || !(e.name === 'ErrnoError')) throw e;
+    return -e.errno;
+  }
+  }
+  
+
+  
+  function ___syscall_openat(dirfd, path, flags, varargs) {
+  SYSCALLS.varargs = varargs;
+  try {
+  
+      path = SYSCALLS.getStr(path);
+      path = SYSCALLS.calculateAt(dirfd, path);
+      var mode = varargs ? syscallGetVarargI() : 0;
+      if (flags & 64) {
+        mode &= ~SYSCALLS.currentUmask;
+      }
+      return FS.open(path, flags, mode).fd;
+    } catch (e) {
+    if (typeof FS == 'undefined' || !(e.name === 'ErrnoError')) throw e;
+    return -e.errno;
+  }
+  }
+  
+
   var __abort_js = () =>
       abort('native code called abort()');
 
@@ -7000,6 +7297,60 @@ var _emscripten_set_main_loop_timing = (mode, value) => {
         getWasmTableEntry(func)(arg);
       }, name: UTF8ToString(name), counted: true });
       MainLoop.updateStatus();
+    };
+
+  
+  var __tzset_js = (timezone, daylight, std_name, dst_name) => {
+      // TODO: Use (malleable) environment variables instead of system settings.
+      var currentYear = new Date().getFullYear();
+      var winter = new Date(currentYear, 0, 1);
+      var summer = new Date(currentYear, 6, 1);
+      var winterOffset = winter.getTimezoneOffset();
+      var summerOffset = summer.getTimezoneOffset();
+  
+      // Local standard timezone offset. Local standard time is not adjusted for
+      // daylight savings.  This code uses the fact that getTimezoneOffset returns
+      // a greater value during Standard Time versus Daylight Saving Time (DST).
+      // Thus it determines the expected output during Standard Time, and it
+      // compares whether the output of the given date the same (Standard) or less
+      // (DST).
+      var stdTimezoneOffset = Math.max(winterOffset, summerOffset);
+  
+      // timezone is specified as seconds west of UTC ("The external variable
+      // `timezone` shall be set to the difference, in seconds, between
+      // Coordinated Universal Time (UTC) and local standard time."), the same
+      // as returned by stdTimezoneOffset.
+      // See http://pubs.opengroup.org/onlinepubs/009695399/functions/tzset.html
+      HEAPU32[((timezone)>>2)] = stdTimezoneOffset * 60;
+  
+      HEAP32[((daylight)>>2)] = Number(winterOffset != summerOffset);
+  
+      var extractZone = (timezoneOffset) => {
+        // Why inverse sign?
+        // Read here https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTimezoneOffset
+        var sign = timezoneOffset >= 0 ? "-" : "+";
+  
+        var absOffset = Math.abs(timezoneOffset)
+        var hours = String(Math.floor(absOffset / 60)).padStart(2, "0");
+        var minutes = String(absOffset % 60).padStart(2, "0");
+  
+        return `UTC${sign}${hours}${minutes}`;
+      }
+  
+      var winterName = extractZone(winterOffset);
+      var summerName = extractZone(summerOffset);
+      assert(winterName);
+      assert(summerName);
+      assert(lengthBytesUTF8(winterName) <= 16, `timezone name truncated to fit in TZNAME_MAX (${winterName})`);
+      assert(lengthBytesUTF8(summerName) <= 16, `timezone name truncated to fit in TZNAME_MAX (${summerName})`);
+      if (summerOffset < winterOffset) {
+        // Northern hemisphere
+        stringToUTF8(winterName, std_name, 17);
+        stringToUTF8(summerName, dst_name, 17);
+      } else {
+        stringToUTF8(winterName, dst_name, 17);
+        stringToUTF8(summerName, std_name, 17);
+      }
     };
 
   var SDL_gfx = {
@@ -7080,7 +7431,7 @@ var _emscripten_set_main_loop_timing = (mode, value) => {
       2147483648;
   
   var alignMemory = (size, alignment) => {
-      assert(alignment, "alignment argument is required");
+      assert(alignment, 'alignment argument is required');
       return Math.ceil(size / alignment) * alignment;
     };
   
@@ -7160,7 +7511,7 @@ var _emscripten_set_main_loop_timing = (mode, value) => {
   var ENV = {
   };
   
-  var getExecutableName = () => thisProgram || './this.program';
+  var getExecutableName = () => thisProgram;
   var getEnvStrings = () => {
       if (!getEnvStrings.strings) {
         // Default values.
@@ -7216,90 +7567,43 @@ var _emscripten_set_main_loop_timing = (mode, value) => {
     };
 
 
-  
-  
-  var SYSCALLS = {
-  currentUmask:18,
-  calculateAt(dirfd, path, allowEmpty) {
-        if (PATH.isAbs(path)) {
-          return path;
-        }
-        // relative path
-        var dir;
-        if (dirfd === -100) {
-          dir = FS.cwd();
-        } else {
-          var dirstream = SYSCALLS.getStreamFromFD(dirfd);
-          dir = dirstream.path;
-        }
-        if (path.length == 0) {
-          if (!allowEmpty) {
-            throw new FS.ErrnoError(44);;
-          }
-          return dir;
-        }
-        return dir + '/' + path;
-      },
-  writeStat(buf, stat) {
-        HEAPU32[((buf)>>2)] = stat.dev;
-        HEAPU32[(((buf)+(4))>>2)] = stat.mode;
-        HEAPU32[(((buf)+(8))>>2)] = stat.nlink;
-        HEAPU32[(((buf)+(12))>>2)] = stat.uid;
-        HEAPU32[(((buf)+(16))>>2)] = stat.gid;
-        HEAPU32[(((buf)+(20))>>2)] = stat.rdev;
-        HEAP64[(((buf)+(24))>>3)] = BigInt(stat.size);
-        HEAP32[(((buf)+(32))>>2)] = 4096;
-        HEAP32[(((buf)+(36))>>2)] = stat.blocks;
-        var atime = stat.atime.getTime();
-        var mtime = stat.mtime.getTime();
-        var ctime = stat.ctime.getTime();
-        HEAP64[(((buf)+(40))>>3)] = BigInt(Math.floor(atime / 1000));
-        HEAPU32[(((buf)+(48))>>2)] = (atime % 1000) * 1000 * 1000;
-        HEAP64[(((buf)+(56))>>3)] = BigInt(Math.floor(mtime / 1000));
-        HEAPU32[(((buf)+(64))>>2)] = (mtime % 1000) * 1000 * 1000;
-        HEAP64[(((buf)+(72))>>3)] = BigInt(Math.floor(ctime / 1000));
-        HEAPU32[(((buf)+(80))>>2)] = (ctime % 1000) * 1000 * 1000;
-        HEAP64[(((buf)+(88))>>3)] = BigInt(stat.ino);
-        return 0;
-      },
-  writeStatFs(buf, stats) {
-        HEAPU32[(((buf)+(4))>>2)] = stats.bsize;
-        HEAPU32[(((buf)+(60))>>2)] = stats.bsize;
-        HEAP64[(((buf)+(8))>>3)] = BigInt(stats.blocks);
-        HEAP64[(((buf)+(16))>>3)] = BigInt(stats.bfree);
-        HEAP64[(((buf)+(24))>>3)] = BigInt(stats.bavail);
-        HEAP64[(((buf)+(32))>>3)] = BigInt(stats.files);
-        HEAP64[(((buf)+(40))>>3)] = BigInt(stats.ffree);
-        HEAPU32[(((buf)+(48))>>2)] = stats.fsid;
-        HEAPU32[(((buf)+(64))>>2)] = stats.flags;  // ST_NOSUID
-        HEAPU32[(((buf)+(56))>>2)] = stats.namelen;
-      },
-  doMsync(addr, stream, len, flags, offset) {
-        if (!FS.isFile(stream.node.mode)) {
-          throw new FS.ErrnoError(43);
-        }
-        if (flags & 2) {
-          // MAP_PRIVATE calls need not to be synced back to underlying fs
-          return 0;
-        }
-        var buffer = HEAPU8.slice(addr, addr + len);
-        FS.msync(stream, buffer, offset, len, flags);
-      },
-  getStreamFromFD(fd) {
-        var stream = FS.getStreamChecked(fd);
-        return stream;
-      },
-  varargs:undefined,
-  getStr(ptr) {
-        var ret = UTF8ToString(ptr);
-        return ret;
-      },
-  };
   function _fd_close(fd) {
   try {
   
       var stream = SYSCALLS.getStreamFromFD(fd);
       FS.close(stream);
+      return 0;
+    } catch (e) {
+    if (typeof FS == 'undefined' || !(e.name === 'ErrnoError')) throw e;
+    return e.errno;
+  }
+  }
+  
+
+  /** @param {number=} offset */
+  var doReadv = (stream, iov, iovcnt, offset) => {
+      var ret = 0;
+      for (var i = 0; i < iovcnt; i++) {
+        var ptr = HEAPU32[((iov)>>2)];
+        var len = HEAPU32[(((iov)+(4))>>2)];
+        iov += 8;
+        var curr = FS.read(stream, HEAP8, ptr, len, offset);
+        if (curr < 0) return -1;
+        ret += curr;
+        if (curr < len) break; // nothing more to read
+        if (typeof offset != 'undefined') {
+          offset += curr;
+        }
+      }
+      return ret;
+    };
+  
+  function _fd_read(fd, iov, iovcnt, pnum) {
+  try {
+  
+      var stream = SYSCALLS.getStreamFromFD(fd);
+      var num = doReadv(stream, iov, iovcnt);
+      HEAPU32[((pnum)>>2)] = num;
       return 0;
     } catch (e) {
     if (typeof FS == 'undefined' || !(e.name === 'ErrnoError')) throw e;
@@ -7441,16 +7745,15 @@ var _emscripten_set_main_loop_timing = (mode, value) => {
 {
 
   // Begin ATMODULES hooks
-  if (Module['preloadPlugins']) preloadPlugins = Module['preloadPlugins'];
+  
 if (Module['noExitRuntime']) noExitRuntime = Module['noExitRuntime'];
 if (Module['print']) out = Module['print'];
 if (Module['printErr']) err = Module['printErr'];
-if (Module['wasmBinary']) wasmBinary = Module['wasmBinary'];
   // End ATMODULES hooks
 
   checkIncomingModuleAPI();
 
-  if (Module['arguments']) arguments_ = Module['arguments'];
+  if (Module['arguments']) programArgs = Module['arguments'];
   if (Module['thisProgram']) thisProgram = Module['thisProgram'];
 
   // Assertions on removed incoming Module JS APIs.
@@ -7469,10 +7772,13 @@ if (Module['wasmBinary']) wasmBinary = Module['wasmBinary'];
   assert(typeof Module['wasmMemory'] == 'undefined', 'Use of `wasmMemory` detected.  Use -sIMPORTED_MEMORY to define wasmMemory externally');
   assert(typeof Module['INITIAL_MEMORY'] == 'undefined', 'Detected runtime INITIAL_MEMORY setting.  Use -sIMPORTED_MEMORY to define wasmMemory dynamically');
 
-  if (Module['preInit']) {
-    if (typeof Module['preInit'] == 'function') Module['preInit'] = [Module['preInit']];
-    while (Module['preInit'].length > 0) {
-      Module['preInit'].shift()();
+  var preInit = Module['preInit'];
+  if (preInit) {
+    if (typeof preInit == 'function') Module['preInit'] = preInit = [preInit];
+    // Written as a loop so that preInit functions that themselves add more
+    // preInit functions.  Is this actually needed?
+    while (preInit.length > 0) {
+      preInit.shift()();
     }
   }
   consumedModuleProp('preInit');
@@ -7588,7 +7894,6 @@ if (Module['wasmBinary']) wasmBinary = Module['wasmBinary'];
   'getCallstack',
   'convertPCtoSourceLocation',
   'checkWasiClock',
-  'doReadv',
   'wasiRightsToMuslOFlags',
   'wasiOFlagsToMuslOFlags',
   'setImmediateWrapped',
@@ -7598,6 +7903,7 @@ if (Module['wasmBinary']) wasmBinary = Module['wasmBinary'];
   'registerPreMainLoop',
   'getPromise',
   'makePromise',
+  'addPromise',
   'idsToPromises',
   'makePromiseCallback',
   'findMatchingCatch',
@@ -7619,6 +7925,7 @@ if (Module['wasmBinary']) wasmBinary = Module['wasmBinary'];
   'colorChannelsInGlTextureFormat',
   'emscriptenWebGLGetTexPixelData',
   'emscriptenWebGLGetUniform',
+  'webglGetProgramUniformLocation',
   'webglGetUniformLocation',
   'webglPrepareUniformLocationsBeforeFirstUse',
   'webglGetLeftBracePos',
@@ -7717,6 +8024,7 @@ missingLibrarySymbols.forEach(missingLibrarySymbol)
   'UNWIND_CACHE',
   'ExitStatus',
   'getEnvStrings',
+  'doReadv',
   'doWritev',
   'initRandomFill',
   'randomFill',
@@ -7894,6 +8202,26 @@ function checkIncomingModuleAPI() {
   ignoredModuleProp('onRealloc');
   ignoredModuleProp('onFree');
   ignoredModuleProp('onSbrkGrow');
+  ignoredModuleProp('onCOSCacheHit');
+  ignoredModuleProp('onCOSCacheMiss');
+  ignoredModuleProp('onCOSStore');
+  ignoredModuleProp('GL_MAX_TEXTURE_IMAGE_UNITS');
+  ignoredModuleProp('SDL_canPlayWithWebAudio');
+  ignoredModuleProp('SDL_numSimultaneouslyQueuedBuffers');
+  ignoredModuleProp('freePreloadedMediaOnUse');
+  ignoredModuleProp('preinitializedWebGLContext');
+  ignoredModuleProp('keyboardListeningElement');
+  ignoredModuleProp('doNotCaptureKeyboard');
+  ignoredModuleProp('extraStackTrace');
+  ignoredModuleProp('preloadPlugins');
+  ignoredModuleProp('preMainLoop');
+  ignoredModuleProp('postMainLoop');
+  ignoredModuleProp('forcedAspectRatio');
+  ignoredModuleProp('mainScriptUrlOrBlob');
+  ignoredModuleProp('onFullScreen');
+  ignoredModuleProp('INITIAL_MEMORY');
+  ignoredModuleProp('wasmMemory');
+  ignoredModuleProp('wasmBinary');
 }
 
 // Imports from the Wasm binary.
@@ -7933,15 +8261,15 @@ function assignWasmExports(wasmExports) {
   assert(typeof wasmExports['emscripten_stack_get_current'] != 'undefined', 'missing Wasm export: emscripten_stack_get_current');
   assert(typeof wasmExports['memory'] != 'undefined', 'missing Wasm export: memory');
   assert(typeof wasmExports['__indirect_function_table'] != 'undefined', 'missing Wasm export: __indirect_function_table');
-  _main = Module['_main'] = createExportWrapper('__main_argc_argv', 2);
-  _memcpy = createExportWrapper('memcpy', 3);
-  _fflush = createExportWrapper('fflush', 1);
+  _main = Module['_main'] = createExportWrapper('__main_argc_argv', wasmExports['__main_argc_argv'], 2);
+  _memcpy = createExportWrapper('memcpy', wasmExports['memcpy'], 3);
+  _fflush = createExportWrapper('fflush', wasmExports['fflush'], 1);
   _emscripten_stack_get_end = wasmExports['emscripten_stack_get_end'];
   _emscripten_stack_get_base = wasmExports['emscripten_stack_get_base'];
-  _strerror = createExportWrapper('strerror', 1);
-  _malloc = createExportWrapper('malloc', 1);
-  _free = createExportWrapper('free', 1);
-  _calloc = createExportWrapper('calloc', 2);
+  _strerror = createExportWrapper('strerror', wasmExports['strerror'], 1);
+  _malloc = createExportWrapper('malloc', wasmExports['malloc'], 1);
+  _free = createExportWrapper('free', wasmExports['free'], 1);
+  _calloc = createExportWrapper('calloc', wasmExports['calloc'], 2);
   _emscripten_stack_init = wasmExports['emscripten_stack_init'];
   _emscripten_stack_get_free = wasmExports['emscripten_stack_get_free'];
   __emscripten_stack_restore = wasmExports['_emscripten_stack_restore'];
@@ -7995,6 +8323,8 @@ var wasmImports = {
   /** @export */
   SDL_GetError: _SDL_GetError,
   /** @export */
+  SDL_GetRGBA: _SDL_GetRGBA,
+  /** @export */
   SDL_GetTicks: _SDL_GetTicks,
   /** @export */
   SDL_Init: _SDL_Init,
@@ -8013,6 +8343,10 @@ var wasmImports = {
   /** @export */
   SDL_Quit: _SDL_Quit,
   /** @export */
+  SDL_RWFromFile: _SDL_RWFromFile,
+  /** @export */
+  SDL_SaveBMP_RW: _SDL_SaveBMP_RW,
+  /** @export */
   SDL_SetVideoMode: _SDL_SetVideoMode,
   /** @export */
   SDL_ShowCursor: _SDL_ShowCursor,
@@ -8022,6 +8356,8 @@ var wasmImports = {
   SDL_UpperBlit: _SDL_UpperBlit,
   /** @export */
   SDL_WM_SetCaption: _SDL_WM_SetCaption,
+  /** @export */
+  SDL_WM_ToggleFullScreen: _SDL_WM_ToggleFullScreen,
   /** @export */
   TTF_CloseFont: _TTF_CloseFont,
   /** @export */
@@ -8035,9 +8371,17 @@ var wasmImports = {
   /** @export */
   __cxa_throw: ___cxa_throw,
   /** @export */
+  __syscall_fcntl64: ___syscall_fcntl64,
+  /** @export */
+  __syscall_ioctl: ___syscall_ioctl,
+  /** @export */
+  __syscall_openat: ___syscall_openat,
+  /** @export */
   _abort_js: __abort_js,
   /** @export */
   _emscripten_push_main_loop_blocker: __emscripten_push_main_loop_blocker,
+  /** @export */
+  _tzset_js: __tzset_js,
   /** @export */
   boxColor: _boxColor,
   /** @export */
@@ -8058,6 +8402,8 @@ var wasmImports = {
   exit: _exit,
   /** @export */
   fd_close: _fd_close,
+  /** @export */
+  fd_read: _fd_read,
   /** @export */
   fd_seek: _fd_seek,
   /** @export */
@@ -8116,56 +8462,40 @@ function stackCheckInit() {
   writeStackCookie();
 }
 
-function run(args = arguments_) {
-
-  if (runDependencies > 0) {
-    dependenciesFulfilled = run;
-    return;
-  }
+async function run(args = programArgs) {
+  assert(!calledRun);
+  calledRun = true;
 
   stackCheckInit();
 
   preRun();
 
-  // a preRun added a dependency, run will be called later
-  if (runDependencies > 0) {
-    dependenciesFulfilled = run;
-    return;
+  if (runDependencies) {
+    await resolveRunDependencies();
   }
 
-  function doRun() {
-    // run may have just been called through dependencies being fulfilled just in this very frame,
-    // or while the async setStatus time below was happening
-    assert(!calledRun);
-    calledRun = true;
-    Module['calledRun'] = true;
-
-    if (ABORT) return;
-
-    initRuntime();
-
-    preMain();
-
-    Module['onRuntimeInitialized']?.();
-    consumedModuleProp('onRuntimeInitialized');
-
-    var noInitialRun = Module['noInitialRun'] || false;
-    if (!noInitialRun) callMain(args);
-
-    postRun();
+  var setStatus = Module['setStatus'];
+  if (setStatus) {
+    setStatus('Running...');
+    // Yield to the event loop to allow the browser to paint "Running..."
+    await new Promise((resolve) => setTimeout(resolve, 1));
+    // Then we want to clear the status text, but only after the rest of this function runs.
+    setTimeout(setStatus, 1, '');
   }
 
-  if (Module['setStatus']) {
-    Module['setStatus']('Running...');
-    setTimeout(() => {
-      setTimeout(() => Module['setStatus'](''), 1);
-      doRun();
-    }, 1);
-  } else
-  {
-    doRun();
-  }
-  checkStackCookie();
+  if (ABORT) return;
+
+  initRuntime();
+
+  // No ATMAINS hooks
+
+  Module['onRuntimeInitialized']?.();
+  consumedModuleProp('onRuntimeInitialized');
+
+  var noInitialRun = Module['noInitialRun'] || false;
+  if (!noInitialRun) callMain(args);
+
+  postRun();
 }
 
 function checkUnflushedContent() {
@@ -8211,9 +8541,7 @@ var wasmExports;
 
 // With async instantation wasmExports is assigned asynchronously when the
 // instance is received.
-createWasm();
-
-run();
+createWasm().then(() => run());
 
 // end include: postamble.js
 
