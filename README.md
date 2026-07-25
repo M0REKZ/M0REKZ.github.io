@@ -2,9 +2,9 @@
 
 [![Kaizo Client](img/kzclient.webp)](Kaizo-Client/)
 
-[![SyobonKZ](SyobonKZ/logo.png)](SyobonKZ/)
-
 ## Paused Projects:
+
+[![SyobonKZ](SyobonKZ/logo.png)](SyobonKZ/)
 
 [![PLUSKAIZO](img/pluskaizologo.png)](PLUSKAIZO/)
 
@@ -20,7 +20,7 @@
 
 ## Other:
 
-* [3D Decker](https://m0rekz.itch.io/decker-raycaster-by-kz) -- Some not 3D thing i made for [Deck-Month 3 JAM](https://itch.io/jam/deck-month-3) because why not
+* [3D Decker](3ddecker/) -- Some not 3D thing i made for [Deck-Month 3 JAM](https://itch.io/jam/deck-month-3) because why not
 * [Blogspot backup](blogspot/) -- Backup for the posts i had in Blogspot
 * [DDNet CCID standard](https://github.com/M0REKZ/ddnet-custom-clients) -- DDNet custom client identification standard born in Kaizo Client and used by other clients too
 * [kaizo-skyblock](https://github.com/M0REKZ/kaizo-skyblock) -- Minetest Skyblock mod modified for the Luanti server i had
