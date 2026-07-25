@@ -2,8 +2,6 @@
 
 [![Kaizo Client](img/kzclient.webp)](Kaizo-Client/)
 
-## Paused Projects:
-
 [![SyobonKZ](SyobonKZ/logo.png)](SyobonKZ/)
 
 [![PLUSKAIZO](img/pluskaizologo.png)](PLUSKAIZO/)
