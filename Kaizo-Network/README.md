@@ -8,6 +8,8 @@ A DDNet mod made by me (+KZ) that adds extra mapping features that probably neve
 
 Later it was hosted by TeeCloud community, but they stopped hosting the main servers.
 
+Currently you can find some servers hosted in the [Pointer's labs community](https://matrix.to/#/#pointerslabs-space:matrix.org)
+
 ## Where is the source code?
 
 The source code for the discontinued Kaizo Network server can be found at the "discontinued-server" branch of this repo: [https://github.com/M0REKZ/kaizo-client/tree/discontinued-server](https://github.com/M0REKZ/kaizo-client/tree/discontinued-server)
@@ -16,7 +18,7 @@ Feel free to fork it and maybe do your own continuation, but be aware that the l
 
 ## What are +KZGame and +KZFront Layers?
 
-Custom game layers that only work on Kaizo-Network server and editor, **saving maps on a normal DDNet editor will break the layers content**
+Custom game layers that only work on Kaizo Network server and editor, **saving maps on a normal DDNet editor will break the layers content**
 
-[Kaizo-Network Tile Documentation](Doc/)
+[Kaizo Network Tile Documentation](Doc/)
 
