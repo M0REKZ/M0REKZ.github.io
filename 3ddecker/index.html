@@ -4,14 +4,77 @@ layout: page
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <style>
+            body {
+                margin: 0;
+                padding: 20px;
+                text-align: center;
+                font-family: sans-serif;
+            }
+
+            .iframe-container {
+                width: 640px;
+                height: 380px;
+                margin: 0 auto;
+                overflow: hidden;
+            }
+
+            #game {
+                width: 640px;
+                height: 380px;
+                border: none;
+                transform-origin: top left;
+            }
+
+            .badge {
+                width: 200px;
+                max-width: 100%;
+                height: auto;
+                margin-top: 32px;
+            }
+        </style>
     </head>
     <body>
-        <p style="align-self: center; text-align: center;">
-            <iframe frameborder="0" src="DeckRaycaster.html" allowfullscreen="" width="640" height="380"><a href="https://m0rekz.itch.io/decker-raycaster-by-kz">Play 3D Decker on itch.io</a></iframe>
-            <br><br><br>
-            <a href="https://m0rekz.itch.io/decker-raycaster-by-kz"><img src="./img/badge.svg" alt="Page on itch.io" style="width: 200px;"/></a>
-        </p>
+
+        <div class="iframe-container">
+            <iframe
+                id="game"
+                src="DeckRaycaster.html"
+                allowfullscreen>
+                <a href="https://m0rekz.itch.io/decker-raycaster-by-kz">
+                    3D Decker on itch.io
+                </a>
+            </iframe>
+        </div>
+
+        <a href="https://m0rekz.itch.io/decker-raycaster-by-kz">
+            <img class="badge" src="./img/badge.svg" alt="Page on itch.io">
+        </a>
+
+        <script>
+            const BASE_WIDTH = 640;
+            const BASE_HEIGHT = 380;
+
+            const container = document.querySelector(".iframe-container");
+            const iframe = document.getElementById("game");
+
+            function resizeGame() {
+                const availableWidth = window.innerWidth - 40; // body padding
+                const scale = Math.min(availableWidth / BASE_WIDTH, 1);
+
+                container.style.width = (BASE_WIDTH * scale) + "px";
+                container.style.height = (BASE_HEIGHT * scale) + "px";
+
+                iframe.style.transform = `scale(${scale})`;
+            }
+
+            window.addEventListener("resize", resizeGame);
+            resizeGame();
+        </script>
+
     </body>
 </html>
 
