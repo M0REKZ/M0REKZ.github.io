@@ -23,7 +23,7 @@
     - [ID 17: Play map sound (in tile position, only for player)](#id-17-play-map-sound-in-tile-position-only-for-player)
     - [ID 21: Laser recover jump ON](#id-21-laser-recover-jump-on)
     - [ID 22: Laser recover jump OFF](#id-22-laser-recover-jump-off)
-    - [ID 22: Attractor Beam](#id-23-attractor-beam)
+    - [ID 23: Attractor Beam](#id-23-attractor-beam)
   - [+KZGame Only:](#kzgame-only)
     - [ID 15: No damage](#id-15-no-damage)
     - [ID 16: Hittable Switch/Button](#id-16-hittable-switchbutton)
