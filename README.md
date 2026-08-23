@@ -3,14 +3,14 @@
 <style>
     a img {
         display: inline-block;
-        transition-duration: 0.7s;
+        transition-duration: 0.2s;
         display: block;
         padding: 1.5vw;
     }
 
     a img:hover {
         border-radius: 15px;
-        background-color: #ffffff0e;
+        background-color: #ffffff10;
         padding: 1.4vw;
     }
 </style>
