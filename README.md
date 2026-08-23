@@ -1,5 +1,19 @@
 ## My Projects:
 
+<style>
+    a img {
+        display: inline-block;
+        transition: transform 0.2s ease, filter 0.2s ease;
+        display: block;
+        max-width: 300px;
+    }
+
+    a img:hover {
+        transform: scale(1.05);
+        filter: brightness(1.15);
+    }
+</style>
+
 [![Kaizo Client](img/kzclient.webp)](Kaizo-Client/)
 
 [![SyobonKZ](SyobonKZ/logo.png)](SyobonKZ/)
