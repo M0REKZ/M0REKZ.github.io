@@ -14,7 +14,7 @@
     p a img:active
     {
         border-radius: 15px;
-        background-color: #ffffff10;
+        background-color: #ffffff1A;
     }
 </style>
 
