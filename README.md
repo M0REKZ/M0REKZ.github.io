@@ -2,16 +2,16 @@
 
 <style>
     a img {
+        border-radius: 15px;
         display: inline-block;
         transition-duration: 0.2s;
         display: block;
-        padding: 1.5vw;
+        padding: 1.4vw;
     }
 
     a img:hover {
         border-radius: 15px;
         background-color: #ffffff10;
-        padding: 1.4vw;
     }
 </style>
 
