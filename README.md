@@ -1,7 +1,8 @@
 ## My Projects:
 
 <style>
-    p a img {
+    p a img
+    {
         border-radius: 15px;
         display: inline-block;
         transition-duration: 0.2s;
@@ -9,7 +10,9 @@
         padding: 1.4vw;
     }
 
-    p a img:hover {
+    p a img:hover,
+    p a img:active
+    {
         border-radius: 15px;
         background-color: #ffffff10;
     }
