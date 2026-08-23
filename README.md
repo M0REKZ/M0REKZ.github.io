@@ -3,15 +3,15 @@
 <style>
     a img {
         display: inline-block;
-        transition-duration: 0.5s;
+        transition-duration: 0.7s;
         display: block;
         padding: 1.5vw;
     }
 
     a img:hover {
-        border-radius: 20px;
-        background-color: #ffffff1c;
-        padding: 1.5vw;
+        border-radius: 15px;
+        background-color: #ffffff0e;
+        padding: 1.4vw;
     }
 </style>
 
