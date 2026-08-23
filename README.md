@@ -3,15 +3,15 @@
 <style>
     a img {
         display: inline-block;
-        transition: transform 0.2s ease, filter 0.2s ease;
+        transition-duration: 0.5s;
         display: block;
+        padding: 1.5vw;
     }
 
     a img:hover {
         border-radius: 20px;
-        background-color: #ffffff46;
-        transform: scale(1.05);
-        filter: brightness(1.15);
+        background-color: #ffffff1c;
+        padding: 1.5vw;
     }
 </style>
 
