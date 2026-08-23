@@ -1,4 +1,5 @@
-![logo](./img/g135.png)
+
+<img src="./img/g135.png" alt="logo" width="500wv"/>
 
 # KAIZO NETWORK HAS BEEN DISCONTINUED, FEEL FREE TO FORK THIS, BUT KEEP YOUR FORK SOURCE CODE PUBLIC AS THE LICENSE SAYS
 
