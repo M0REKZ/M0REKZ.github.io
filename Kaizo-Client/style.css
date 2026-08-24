@@ -35,10 +35,14 @@ body
     left: 4%;
 }
 
+ul
+{
+    margin-top: 10px;
+}
+
 .collapsible-content-kz
 {
     text-align: left;
-    line-height: normal;
 }
 
 .collapsible-header-kz
