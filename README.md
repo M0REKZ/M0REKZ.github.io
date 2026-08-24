@@ -43,6 +43,8 @@
 * [kaizo-bombtag](https://github.com/M0REKZ/kaizo-bombtag) -- DDNet BOMB game mode merged with Kaizo Network with some random extra features
 * [My DDNet Skins](Skins/) -- List of my DDNet skins (may be outdated)
 * [Teeworlds archived mod list](twmodlist/) -- Random list with some links for downloading hard to find/lost Teeworlds mods
+* [TWplus Hide and Seek](https://pointer31.github.io/twplus.html#:~:text=Hide%20and%20Seek) -- Improved remake of [Kaizo-Insta](https://m0rekz.github.io/Kaizo-insta/#:~:text=HidNSek
+) Hide and Seek (HidNSek) in Teeworlds 0.7
 
 * [Buy me a energy drink](https://ko-fi.com/pluskaizo)
 
