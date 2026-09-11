@@ -34,7 +34,12 @@
 
 [![Kaizo Network Documentation](img/kz-net.png)](Kaizo-Network/)
 
-## Other:
+## Random interactive web things:
+
+* [SyobonKZ](SyobonKZ/game.html)
+* [3D Decker](3ddecker/)
+
+## Other links:
 
 * [3D Decker](3ddecker/) —— Some not 3D thing i made for [Deck-Month 3 JAM](https://itch.io/jam/deck-month-3) because why not
 * [Blogspot backup](blogspot/) —— Backup for the posts i had in Blogspot
