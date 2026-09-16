@@ -8,6 +8,7 @@
         transition-duration: 0.2s;
         display: block;
         padding: 1.4vw;
+        margin: 1.4vw;
     }
 
     p a img:hover,
