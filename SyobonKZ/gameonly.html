@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        #gameCanvas {
+            display: block;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        window.Module = {
+            canvas,
+
+            locateFile(path) {
+                return path;
+            },
+
+            print(text) {
+                console.log(text);
+            },
+
+            printErr(text) {
+                console.error(text);
+            }
+        };
+    </script>
+    <script src="SyobonKZ.js"></script>
+
+</body>
+

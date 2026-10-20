@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        #game-container {
+            width: 100%;
+            aspect-ratio: 480 / 420;
+            overflow: hidden;
+        }
+
+        #game-container iframe {
+            display: block;
+            width: 480px;
+            height: 420px;
+            border: 0;
+            transform-origin: top left;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <iframe
+            id="game-frame"
+            src="https://m0rekz.github.io/SyobonKZ/gameonly.html"
+            frameborder="0"
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <script>
+        const frame = document.getElementById("game-frame");
+
+        frame.addEventListener("load", () => {
+            frame.focus();
+        });
+    </script>
+
+</body>
+
+
+
