@@ -18,15 +18,15 @@
     }
 </style>
 
-[![Kaizo Client](img/kzclient.webp)](Kaizo-Client/)
-
-[![SyobonKZ](SyobonKZ/logo.png)](SyobonKZ/)
-
 [![PLUSKAIZO](img/pluskaizologo.png)](PLUSKAIZO/)
 
 [![Brain Evil webcomic](img/be-logo.png)](https://brain-evil.webcomic.ws/)
 
 [![Brain Evil: Dark World](img/bedw-logo.png)](BEDW/)
+
+[![SyobonKZ](SyobonKZ/logo.png)](SyobonKZ/)
+
+[![Kaizo Client](img/kzclient.webp)](Kaizo-Client/)
 
 ## Discontinued Projects:
 
