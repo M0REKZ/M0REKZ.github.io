@@ -7,7 +7,7 @@
 
 A DDNet mod made by me (+KZ) that adds extra mapping features that probably never will be added to DDNet, before this Kaizo Network also was a Server Network for DDNet where you could submit maps on there to be played by other people, however i could not keep maintaining the servers so now Kaizo Network is just a mod.
 
-Later it was hosted by TeeCloud community, but they stopped hosting the main servers.
+Later it was hosted by [TeeCloud Network](https://ametic.ovh/projects/#:~:text=TeeCloud%20Network), but they stopped hosting the main servers.
 
 Currently you can find some servers hosted in the [Pointer's labs community](https://matrix.to/#/#pointerslabs-space:matrix.org)
 
