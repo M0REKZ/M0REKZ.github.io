@@ -19,7 +19,7 @@ tabletee = {
 
   makeTableTee: function(teename) {
     skinname = teename.getAttribute("data-skin-name");
-    teename.innerHTML = "<td>" + skinname + "</td><td><a href=\"https://ddnet.org/skins/skin/community/uhd/" + skinname + ".png\" alt=\"" + skinname + "\"><div class=\"tee\" data-skin=\"https://ddnet.org/skins/skin/community/uhd/" + skinname + ".png\"></div></a></td>";
+    teename.innerHTML = "<td>" + skinname + "</td><td><a href=\"https://ddnet.org/skins/skin/community/uhd/" + skinname + ".png\" alt=\"" + skinname + "\"><div class=\"tee\" data-skin=\"https://ddnet.org/skins/skin/community/uhd/" + skinname + ".png\" data-follow-mouse=\"true\"></div></a></td>";
   }
 
 }
